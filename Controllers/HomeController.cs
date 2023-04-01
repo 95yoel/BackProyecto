@@ -15,6 +15,7 @@ namespace AsturTravel.Controllers
 
         public IActionResult Index()
         {
+            //return View("~/Views/Inicio/Inicio.cshtml");
             return View();
         }
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fVmmPoIf8dJU9ymG79hOas0QSe56sTnEeN0GpRY3Nc8=",
+  "Hash": "0vQ6+ju6msTuxDWcOuMCEBttqaZi/26rdCC/RgIyC4E=",
   "Source": "AsturTravel",
   "BasePath": "_content/AsturTravel",
   "Mode": "Default",
@@ -1105,12 +1105,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\1428e26d-919a-4011-be58-a75125cc193e_480321.png",
+      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg",
       "SourceId": "AsturTravel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\",
       "BasePath": "_content/AsturTravel",
-      "RelativePath": "imagenes/1428e26d-919a-4011-be58-a75125cc193e_480321.png",
+      "RelativePath": "imagenes/83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1119,15 +1119,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imagenes\\1428e26d-919a-4011-be58-a75125cc193e_480321.png"
+      "OriginalItemSpec": "wwwroot\\imagenes\\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg"
     },
     {
-      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png",
+      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg",
       "SourceId": "AsturTravel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\",
       "BasePath": "_content/AsturTravel",
-      "RelativePath": "imagenes/346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png",
+      "RelativePath": "imagenes/afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,24 +1136,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imagenes\\346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png"
-    },
-    {
-      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub",
-      "SourceId": "AsturTravel",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\",
-      "BasePath": "_content/AsturTravel",
-      "RelativePath": "imagenes/758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imagenes\\758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub"
+      "OriginalItemSpec": "wwwroot\\imagenes\\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg"
     },
     {
       "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\site.js",

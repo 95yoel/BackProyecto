@@ -170,5 +170,30 @@ namespace AsturTravel.Controllers
         {
           return _context.Viajes.Any(e => e.Id == id);
         }
+
+        public IActionResult GetJson()
+        {
+            List<Viajes> listaViajes = _context.Viajes.ToList();
+            return Json(listaViajes);
+        }
+
+
+
+        public IActionResult GetViajesPorCliente(int idCliente)
+        {
+            var viajesPorCliente = _context.Reservas
+         .Include(r => r.Viaje)
+             .ThenInclude(v => v.Destino)
+         .Include(r => r.Viaje)
+             .ThenInclude(v => v.TipoViaje)
+         .Where(r => r.UsuarioId == idCliente)
+         .Select(r => r.Viaje)
+         .ToList();
+
+            return Json(viajesPorCliente);
+        }
+
+
+
     }
 }

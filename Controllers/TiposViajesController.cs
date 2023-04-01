@@ -44,6 +44,7 @@ namespace AsturTravel.Controllers
         }
 
         // GET: TiposViajes/Create
+        
         public IActionResult Create()
         {
             return View();
@@ -155,7 +156,37 @@ namespace AsturTravel.Controllers
 
         private bool TiposViajeExists(int id)
         {
-          return _context.TiposViaje.Any(e => e.Id == id);
+            return _context.TiposViaje.Any(e => e.Id == id);
+
+
         }
+
+        //ATENCION RUTAS
+        // por algún conflicto no puedo usar la misma ruta de tiposViajes , entonces he quitado el plural
+
+        //esta ruta funciona con tiposViaje
+        [HttpGet("tiposViaje/GetJson")]
+        public IActionResult GetJson()
+        {
+            List<TiposViaje> listaTiposViaje = _context.TiposViaje.ToList();
+            return Json(listaTiposViaje);
+        }
+        //y esta tiposViaje
+        [HttpGet("tiposViaje/{id}")]
+        public async Task<ActionResult<IEnumerable<Viajes>>> GetViajesByTipoViaje(int id)
+        {
+            var viajes = await _context.Viajes
+                .Where(v => v.TipoViajeId == id)
+                .ToListAsync();
+
+            if (viajes == null || viajes.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return viajes;
+        }
+
+
     }
 }

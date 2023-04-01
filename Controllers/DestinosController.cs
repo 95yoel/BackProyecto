@@ -175,5 +175,27 @@ namespace AsturTravel.Controllers
         {
           return _context.Destinos.Any(e => e.Id == id);
         }
+
+        public IActionResult GetJson()
+        {
+            List<Destinos> listaDestinos = _context.Destinos.ToList();
+            return Json(listaDestinos);
+        }
+
+        [HttpGet("destino/{id}")]
+        public async Task<ActionResult<IEnumerable<Viajes>>> GetViajesByDestino(int id)
+        {
+            var viajes = await _context.Viajes
+                .Where(v => v.DestinoId == id)
+                .ToListAsync();
+
+            if (viajes == null || viajes.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return viajes;
+        }
+
     }
 }

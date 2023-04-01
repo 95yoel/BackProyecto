@@ -170,5 +170,32 @@ namespace AsturTravel.Controllers
         {
           return _context.Reservas.Any(e => e.Id == id);
         }
+
+        public IActionResult GetJson()
+        {
+            List<Reservas> listaReservas = _context.Reservas.ToList();
+            return Json(listaReservas);
+        }
+        [HttpGet("reservas/{id}")]
+        public async Task<ActionResult<IEnumerable<Reservas>>> GetReservasByUsuario(int id)
+        {
+            var reservas = await _context.Reservas
+                .Where(r => r.UsuarioId == id)
+                .ToListAsync();
+
+            if (reservas == null || reservas.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return reservas;
+        }
+
+
+
+
+
+
+
     }
 }

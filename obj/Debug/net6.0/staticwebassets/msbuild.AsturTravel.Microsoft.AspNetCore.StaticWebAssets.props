@@ -48,12 +48,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\1428e26d-919a-4011-be58-a75125cc193e_480321.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>AsturTravel</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/AsturTravel</BasePath>
-      <RelativePath>imagenes/1428e26d-919a-4011-be58-a75125cc193e_480321.png</RelativePath>
+      <RelativePath>imagenes/83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,14 +62,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\1428e26d-919a-4011-be58-a75125cc193e_480321.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>AsturTravel</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/AsturTravel</BasePath>
-      <RelativePath>imagenes/346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png</RelativePath>
+      <RelativePath>imagenes/afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -78,23 +78,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\346bbc4a-1007-4efd-b895-91ddda6e9ae2_731582.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub))">
-      <SourceType>Package</SourceType>
-      <SourceId>AsturTravel</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/AsturTravel</BasePath>
-      <RelativePath>imagenes/758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\758c1297-06f1-42e6-8469-c984b6bf3515_eres-sangre-de-mi-sangre-oslo-02-ruth-lillegraven.epub))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\imagenes\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>
