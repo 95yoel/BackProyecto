@@ -158,12 +158,28 @@ namespace AsturTravel.Controllers
           return _context.Usuario.Any(e => e.Id == id);
         }
 
+
+        [HttpGet("usuario/GetJson")]
         public IActionResult GetJson()
         {
             List<Usuario> listaUsuario = _context.Usuario.ToList();
             return Json(listaUsuario);
         }
-        
+        [HttpGet("usuario/{id}")]
+        public IActionResult InfoUsuario(int id)
+        {
+            Usuario usuario = _context.Usuario.FirstOrDefault(u => u.Id == id);
+            if (usuario == null)
+            {
+                return Json(new List<Usuario>());
+            }
+            return Json(usuario);
+        }
+
+
+
+
+
 
 
 

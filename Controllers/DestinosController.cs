@@ -176,13 +176,14 @@ namespace AsturTravel.Controllers
           return _context.Destinos.Any(e => e.Id == id);
         }
 
+        [HttpGet("destino/GetJson")]
         public IActionResult GetJson()
         {
             List<Destinos> listaDestinos = _context.Destinos.ToList();
             return Json(listaDestinos);
         }
 
-        [HttpGet("destino/{id}")]
+        [HttpGet("destino/viajesDestino{id}")]
         public async Task<ActionResult<IEnumerable<Viajes>>> GetViajesByDestino(int id)
         {
             var viajes = await _context.Viajes
@@ -191,11 +192,24 @@ namespace AsturTravel.Controllers
 
             if (viajes == null || viajes.Count == 0)
             {
-                return NotFound();
+                return Json(new List<Destinos>());
             }
 
             return viajes;
         }
+        [HttpGet("destino/infoDestino/{id}")]
+        public async Task<ActionResult<Destinos>> GetDestinoById(int id)
+        {
+            var destino = await _context.Destinos.FindAsync(id);
+
+            if (destino == null)
+            {
+                return NotFound();
+            }
+
+            return destino;
+        }
+
 
     }
 }

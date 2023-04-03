@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0vQ6+ju6msTuxDWcOuMCEBttqaZi/26rdCC/RgIyC4E=",
+  "Hash": "ZN/nVRCTiD8vkNtal22PwZe4JcYHReTiPk9QgLOG7rs=",
   "Source": "AsturTravel",
   "BasePath": "_content/AsturTravel",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\7735e87f-b5b0-417c-bcca-c88580a9cdfd_textura.jpg",
+      "SourceId": "AsturTravel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\",
+      "BasePath": "_content/AsturTravel",
+      "RelativePath": "imagenes/7735e87f-b5b0-417c-bcca-c88580a9cdfd_textura.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\7735e87f-b5b0-417c-bcca-c88580a9cdfd_textura.jpg"
     },
     {
       "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg",

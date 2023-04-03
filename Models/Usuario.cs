@@ -19,6 +19,8 @@ namespace AsturTravel.Models
         [DataType(DataType.Password)]
         public string Contrasenas { get; set; }
         public Roles Rol { get; set; }
-        
+
+
+        public string NombreCompleto => $"{Id}. {Nombre} {Apellidos}";
     }
 }

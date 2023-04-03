@@ -181,7 +181,7 @@ namespace AsturTravel.Controllers
 
             if (viajes == null || viajes.Count == 0)
             {
-                return NotFound();
+                return Json(new List<Viajes>());
             }
 
             return viajes;

@@ -49,8 +49,8 @@ namespace AsturTravel.Controllers
         // GET: Reservas/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id");
-            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Id");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nombre");
+            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
             return View();
         }
 
@@ -85,8 +85,8 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", reservas.UsuarioId);
-            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Id", reservas.ViajeId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "NombreCompleto", reservas.UsuarioId);
+            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", reservas.ViajeId);
             return View(reservas);
         }
 
@@ -122,8 +122,8 @@ namespace AsturTravel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", reservas.UsuarioId);
-            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Id", reservas.ViajeId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "NombreCompleto", reservas.UsuarioId);
+            ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", reservas.ViajeId);
             return View(reservas);
         }
 
@@ -170,26 +170,59 @@ namespace AsturTravel.Controllers
         {
           return _context.Reservas.Any(e => e.Id == id);
         }
-
+        //A la ruta tiene una s menos
+        [HttpGet("reserva/GetJson")]
         public IActionResult GetJson()
         {
-            List<Reservas> listaReservas = _context.Reservas.ToList();
+            List<Reservas> listaReservas = _context.Reservas
+                .Include(r => r.Usuario)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.Destino)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.TipoViaje)
+       
+                .ToList();
             return Json(listaReservas);
         }
-        [HttpGet("reservas/{id}")]
+        //A la ruta tiene una s menos
+        [HttpGet("reserva/reservasUsuario/{id}")]
         public async Task<ActionResult<IEnumerable<Reservas>>> GetReservasByUsuario(int id)
         {
             var reservas = await _context.Reservas
+                .Include(r => r.Usuario)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.Destino)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.TipoViaje)
                 .Where(r => r.UsuarioId == id)
                 .ToListAsync();
 
             if (reservas == null || reservas.Count == 0)
             {
-                return NotFound();
+                return Json(new List<Reservas>());
             }
 
             return reservas;
         }
+        [HttpGet("reserva/infoReserva/{id}")]
+        public async Task<ActionResult<Reservas>> GetReservaById(int id)
+        {
+            var reserva = await _context.Reservas
+                .Include(r => r.Usuario)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.Destino)
+                .Include(r => r.Viaje)
+                    .ThenInclude(v => v.TipoViaje)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (reserva == null)
+            {
+                return Json(new List<Reservas>());
+            }
+
+            return reserva;
+        }
+
 
 
 

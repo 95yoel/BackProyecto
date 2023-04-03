@@ -49,8 +49,8 @@ namespace AsturTravel.Controllers
         // GET: Viajes/Create
         public IActionResult Create()
         {
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Id");
-            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Id");
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
+            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo");
             return View();
         }
 
@@ -85,8 +85,8 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Id", viajes.DestinoId);
-            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Id", viajes.TipoViajeId);
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre", viajes.DestinoId);
+            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
             return View(viajes);
         }
 
@@ -122,8 +122,8 @@ namespace AsturTravel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Id", viajes.DestinoId);
-            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Id", viajes.TipoViajeId);
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre", viajes.DestinoId);
+            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
             return View(viajes);
         }
 
@@ -178,20 +178,20 @@ namespace AsturTravel.Controllers
         }
 
 
+        //creo que no hace falta ya que hago lo mismo en reservas
+        //public IActionResult GetViajesPorCliente(int idCliente)
+        //{
+        //    var viajesPorCliente = _context.Reservas
+        // .Include(r => r.Viaje)
+        //     .ThenInclude(v => v.Destino)
+        // .Include(r => r.Viaje)
+        //     .ThenInclude(v => v.TipoViaje)
+        // .Where(r => r.UsuarioId == idCliente)
+        // .Select(r => r.Viaje)
+        // .ToList();
 
-        public IActionResult GetViajesPorCliente(int idCliente)
-        {
-            var viajesPorCliente = _context.Reservas
-         .Include(r => r.Viaje)
-             .ThenInclude(v => v.Destino)
-         .Include(r => r.Viaje)
-             .ThenInclude(v => v.TipoViaje)
-         .Where(r => r.UsuarioId == idCliente)
-         .Select(r => r.Viaje)
-         .ToList();
-
-            return Json(viajesPorCliente);
-        }
+        //    return Json(viajesPorCliente);
+        //}
 
 
 
