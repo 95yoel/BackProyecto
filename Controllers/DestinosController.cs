@@ -183,7 +183,7 @@ namespace AsturTravel.Controllers
             return Json(listaDestinos);
         }
 
-        [HttpGet("destino/viajesDestino{id}")]
+        [HttpGet("destino/viajesDestino/{id}")]
         public async Task<ActionResult<IEnumerable<Viajes>>> GetViajesByDestino(int id)
         {
             var viajes = await _context.Viajes
@@ -204,7 +204,7 @@ namespace AsturTravel.Controllers
 
             if (destino == null)
             {
-                return NotFound();
+                return Json(new List<Destinos>());
             }
 
             return destino;
