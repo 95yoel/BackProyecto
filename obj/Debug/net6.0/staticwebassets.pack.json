@@ -13,16 +13,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\7735e87f-b5b0-417c-bcca-c88580a9cdfd_textura.jpg",
-      "PackagePath": "staticwebassets\\imagenes\\7735e87f-b5b0-417c-bcca-c88580a9cdfd_textura.jpg"
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\textura.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\textura.jpg"
     },
     {
-      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg",
-      "PackagePath": "staticwebassets\\imagenes\\83b81c6e-4eb8-464e-be36-00ef8c59e3f9_textura.jpg"
-    },
-    {
-      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg",
-      "PackagePath": "staticwebassets\\imagenes\\afd72609-35c4-4ac0-8722-60da50098774_cyberpunk-2077-every-new-detail-announced-in-night-city-wire_kmma.jpg"
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\imagenes\\textura2.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\textura2.jpg"
     },
     {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\site.js",

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
+
 <h1>Create</h1>
 
 <h4>Destinos</h4>
@@ -27,15 +28,17 @@
                 <input asp-for="ImagenFile" type="file" class="form-control-file" />
                 <span asp-validation-for="ImagenFile" class="text-danger"></span>
              </div>
+             <br />
+            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

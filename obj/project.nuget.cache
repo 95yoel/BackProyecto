@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kWL7AQm2nWqu84YAK1uVDYZC/00BouVwCYPL0qOpT3tDB+y1Zu5aFNU6mgtWwAkRo6tLWnqEpYANEyadlFsV0w==",
+  "dgSpecHash": "pYBfukzrUQOuADrOoJfToNp+KZwoqk9LGVudrRQJ5xlc2AQvaf9jFXbiueLBnFBJSzRl0736MzlHTlhjmjRXRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\AsturTravel.csproj",
   "expectedPackageFiles": [
@@ -8,11 +8,13 @@
     "C:\\Users\\villa\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.13\\microsoft.aspnetcore.cryptography.internal.6.0.13.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.13\\microsoft.aspnetcore.cryptography.keyderivation.6.0.13.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.13\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.13.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.13.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.13\\microsoft.aspnetcore.identity.ui.6.0.13.nupkg.sha512",
