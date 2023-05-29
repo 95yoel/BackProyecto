@@ -21,7 +21,7 @@ namespace AsturTravel.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return Redirect("http://www.google.com");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -29,5 +29,14 @@ namespace AsturTravel.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult DocumentacionHttp()
+        {
+            return PartialView("PartialsHomeAdmin/_PartialDocsHttp");
+        }
+
+
+
+
     }
 }

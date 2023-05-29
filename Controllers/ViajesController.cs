@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsturTravel.Data;
 using AsturTravel.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Globalization;
 
 namespace AsturTravel.Controllers
 {
+
     public class ViajesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +21,7 @@ namespace AsturTravel.Controllers
         {
             _context = context;
         }
+ 
 
         // GET: Viajes
         public async Task<IActionResult> Index()
@@ -51,18 +55,25 @@ namespace AsturTravel.Controllers
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo");
-            return View();
+            return PartialView("PartialsHomeAdmin/_PartialCreateViajes");
         }
 
         // POST: Viajes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //FIXME : he creado un nuevo campo PrecioString para poder crear el precio, pero no se como hacer para que se guarde en la base de datos
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,DestinoId,TipoViajeId,FechaSalida,FechaLlegada,Precio")] Viajes viajes)
+        public async Task<IActionResult> Create(Viajes viajes)
         {
             if (ModelState.IsValid)
             {
+
+                var culture = new CultureInfo("es-ES");
+                viajes.Precio = double.Parse(viajes.PrecioString, culture);
+
+
                 _context.Add(viajes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -73,6 +84,7 @@ namespace AsturTravel.Controllers
         }
 
         // GET: Viajes/Edit/5
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Viajes == null)
@@ -87,15 +99,19 @@ namespace AsturTravel.Controllers
             }
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre", viajes.DestinoId);
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
-            return View(viajes);
+
+            return PartialView("PartialsHomeAdmin/_PartialEditarViajes",viajes);
         }
 
         // POST: Viajes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //FIXME: he creado un nuevo campo PrecioString para poder editar el precio, pero no se como hacer para que se guarde en la base de datos
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,DestinoId,TipoViajeId,FechaSalida,FechaLlegada,Precio")] Viajes viajes)
+        
+        public async Task<IActionResult> Edit(int id,Viajes viajes)
         {
             if (id != viajes.Id)
             {
@@ -106,6 +122,9 @@ namespace AsturTravel.Controllers
             {
                 try
                 {
+                    var culture = new CultureInfo("es-ES");
+                    viajes.Precio = double.Parse(viajes.PrecioString, culture);
+
                     _context.Update(viajes);
                     await _context.SaveChangesAsync();
                 }
@@ -166,6 +185,9 @@ namespace AsturTravel.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
+
+
         private bool ViajesExists(int id)
         {
           return _context.Viajes.Any(e => e.Id == id);
@@ -176,6 +198,33 @@ namespace AsturTravel.Controllers
             List<Viajes> listaViajes = _context.Viajes.ToList();
             return Json(listaViajes);
         }
+        public IActionResult GetPrecio(int id)
+        {
+
+            var precio = _context.Viajes.Find(id).Precio;
+            var tipo = _context.Viajes.Find(id).TipoViaje;
+            var destino = _context.Viajes.Find(id).Destino;
+
+             
+            return Json(new { precio, tipo, destino });
+        }
+
+        public IActionResult getPrecioViaje(int id)
+        {
+            var reservas = _context.Reservas.Find(id);
+            if (id == -1)
+            {
+                return Json(0);
+            }
+            else
+            {
+                var precio = reservas.Precio;
+                return Json(precio);
+            }
+
+        }
+
+
 
 
         //creo que no hace falta ya que hago lo mismo en reservas
@@ -192,8 +241,18 @@ namespace AsturTravel.Controllers
 
         //    return Json(viajesPorCliente);
         //}
+        public IActionResult PartialIndex()
+        {
+            var viajes = _context.Viajes.Include(v => v.Destino).Include(v => v.TipoViaje);
 
-
+            return PartialView("PartialsHomeAdmin/_PartialViajes", viajes);
+        }
+        public IActionResult PartialCreate()
+        {
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
+            ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo");
+            return PartialView("PartialsHomeAdmin/_PartialCreateViajes");
+        }
 
     }
 }

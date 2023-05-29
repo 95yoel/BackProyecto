@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "defaultProvider": "filesystem",
+  "libraries": [
+    {
+      "library": ".git/",
+      "destination": "wwwroot/lib/material-icons/"
+    },
+    {
+      "library": "node_modules/@fortawesome/",
+      "destination": "wwwroot/lib/@fortawesome/",
+      "files": []
+    },
+    {
+      "library": "node_modules/font-awesome/",
+      "destination": "wwwroot/lib/font-awesome/",
+      "files": [
+        ".npmignore",
+        "HELP-US-OUT.txt",
+        "package.json",
+        "README.md"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "font-awesome@6.4.0",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "material-icons@1.13.7",
+      "destination": "wwwroot/lib/material-icons/",
+      "files": [
+        "index.d.ts",
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "css/material-icons.css",
+        "css/material-icons.min.css",
+        "css/material-icons.scss",
+        "css/_codepoints.scss",
+        "css/_mixins.scss",
+        "css/_variables.scss",
+        "iconfont/filled.css",
+        "iconfont/filled.scss",
+        "iconfont/material-icons-outlined.woff",
+        "iconfont/material-icons-outlined.woff2",
+        "iconfont/material-icons-round.woff",
+        "iconfont/material-icons-round.woff2",
+        "iconfont/material-icons-sharp.woff",
+        "iconfont/material-icons-sharp.woff2",
+        "iconfont/material-icons-two-tone.woff",
+        "iconfont/material-icons-two-tone.woff2",
+        "iconfont/material-icons.css",
+        "iconfont/material-icons.scss",
+        "iconfont/material-icons.woff",
+        "iconfont/material-icons.woff2",
+        "iconfont/outlined.css",
+        "iconfont/outlined.scss",
+        "iconfont/round.css",
+        "iconfont/round.scss",
+        "iconfont/sharp.css",
+        "iconfont/sharp.scss",
+        "iconfont/two-tone.css",
+        "iconfont/two-tone.scss",
+        "iconfont/_mixins.scss",
+        "iconfont/_variables.scss",
+        "_data/versions.json"
+      ]
+    }
+  ]
+}

@@ -16,11 +16,12 @@ namespace AsturTravel.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
-        [DataType(DataType.Password)]
         public string Contrasenas { get; set; }
         public Roles Rol { get; set; }
+        public string? Telefono { get; set; }
+        public string? DNI { get; set; }
+        public string? CODPOST { get; set; }
 
-
-        public string NombreCompleto => $"{Id}. {Nombre} {Apellidos}";
+        public string NombreCompleto => $"{Nombre} {Apellidos}";
     }
 }

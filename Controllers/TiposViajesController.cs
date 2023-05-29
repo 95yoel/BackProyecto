@@ -187,6 +187,13 @@ namespace AsturTravel.Controllers
             return viajes;
         }
 
+        public IActionResult PartialIndex()
+        {
+            var tipos = _context.TiposViaje.ToList();
+
+            return PartialView("PartialsHomeAdmin/_PartialTipos", tipos);
+        }
+
 
     }
 }

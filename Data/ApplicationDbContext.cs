@@ -15,5 +15,6 @@ namespace AsturTravel.Data
         public DbSet<AsturTravel.Models.Destinos> Destinos { get; set; }
         public DbSet<AsturTravel.Models.Viajes> Viajes { get; set; }
         public DbSet<AsturTravel.Models.Reservas> Reservas { get; set; }
+        public DbSet<AsturTravel.Models.Destacados>? Destacados { get; set; }
     }
 }

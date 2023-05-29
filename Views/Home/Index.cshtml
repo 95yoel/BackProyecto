@@ -1,92 +1,319 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .adminNav {
+        background-color:#CAFFB0;
+        transition: 0.18s;
+    }
+    .adminNav :hover {
+        background-color: #3a9962;
+            transition: 0.18s;
+    }
+
+    .adminLink {
+        color: #3a9962;
+        transition: 0.18s;
+    }
+    .adminLink:hover{
+        color:white;
+        transition:0.18s;
+    }
+
+    .adminNav:hover .adminLink {
+        transform: translateY(3px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .adminNav:hover .adminLink:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+     }
+
+    .sombraAdminNav {
+        box-shadow: 0px -40px 10px -40px rgba(0, 0, 0, 0.6) inset;
+    }
+
+</style>
 
 <div class="text-center">
-    <h1 class="display-4">Vista de administrador</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div class="container">
-        <div class="row">
-            <!-- Primera columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">DESTINOS</h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="/destino/GetJson">destino/GetJson</a></h5>
-                        <p class="card-text">Devuelve un json de todos los destinos.</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="destino/viajesDestino/1">destino/viajesDestino/{id}</a></h5>
-                        <p class="card-text">Devuelve todos los viajes que contiene un destino.</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="destino/infoDestino/1">destino/viajesDestino/{id}</a></h5>
-                        <p class="card-text">Devuelve informacion sobre un destino en conreto.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Segunda columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">RESERVAS</h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="reserva/GetJson">reserva/GetJson</a></h5>
-                        <p class="card-text">Devuelve un json de todas las reservas.</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="reserva/reservasUsuario/3">reserva/reservasUsuario/{id}</a></h5>
-                        <p class="card-text">Obtiene todas las reservas que tiene un usuario</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="reserva/infoReserva/1">reserva/infoReserva/{id}</a></h5>
-                        <p class="card-text">Obtiene la info de una reserva a partir de su id.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tercera columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">TIPOS VIAJE</h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="tiposViaje/GetJson">tiposViaje/GetJson</a></h5>
-                        <p class="card-text">Devuelve un json con todos los tipos de viaje.</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="tiposViaje/1">tiposViaje/{id}</a></h5>
-                        <p class="card-text">Devuelve un json con un tipo de viaje en concreto.</p>
-                    </div>
-                </div>
-            </div>
+    
+    <div style="background-color: #f2f2f2;
+    border-collapse: collapse;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color:#3a9962">
+        <h1 class="display-4">Administración AsturTravel</h1>
+        <div class="align-content-center sombraAdminNav" style="margin-bottom:10px;">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item adminNav" style="background-color:#CAFFB0;" id="cajaBtnDestinos">
+                    <a class="nav-link adminLink" href="" id="btnDestinos">Destinos</a>
+				    </li>
+                <li class="nav-item  adminNav" style="background-color:#CAFFB0;" id="cajaBtnReservas">
+                    <a class="nav-link adminLink" href="" id="btnReservas">Reservas</a>
+				    </li>
+                <li class="nav-item  adminNav" style="background-color:#CAFFB0;" id="cajaBtnTipos">
+                    <a class="nav-link adminLink" href="" id="btnTipos">Tipos de viaje</a>
+				    </li>
+                <li class="nav-item  adminNav" style="background-color:#CAFFB0;" id="cajaBtnUsuarios">
+                    <a class="nav-link adminLink" href="" id="btnUsuarios">Usuarios</a>
+				    </li>
+                <li class="nav-item  adminNav" style="background-color:#CAFFB0;" id="cajaBtnViajes">
+                    <a class="nav-link adminLink" href="" id="btnViajes">Viajes</a>
+				    </li>
+                <li class="nav-item  adminNav" style="background-color:#CAFFB0;" id="cajaBtnDocumentacion">
+                    <a class="nav-link adminLink" href="" id="docsHttp">Documentacion Http</a>
+                </li>
+			</ul>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <!-- Primera columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">USUARIOS</h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="usuario/GetJson">usuario/GetJson</a></h5>
-                        <p class="card-text">Devuelve un json con todos los usuarios.</p>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="usuario/3">usuario/{id}</a></h5>
-                        <p class="card-text">Devuelve kson con datos de un usuario especifico.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Segunda columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">VIAJES</h1>
-                        <h5 class="card-subtitle mb-2 text-muted"><a href="viajes/GetJson">viajes/GetJson</a></h5>
-                        <p class="card-text">Devuelve un json con todos los viajes.</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- Tercera columna -->
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="card-title">RUTA IMAGEN SERVIDOR </h1>
-                        <h5 class="card-subtitle mb-2 text-muted">https://localhost:7227/imagenes/3e5e19e5-c14f-4bb5-9a8f-9cdf6c6f8451_fotos.gif</h5>
-                        <p class="card-text">Texto de ejemplo para subtitulo 1.</p>
-                        <h5 class="card-subtitle mb-2 text-muted">Subtitulo 2</h5>
-                        <p class="card-text">Texto de ejemplo para subtitulo 2.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    @*<a href="http://localhost:4200">Serv</a>
+    <h1>Con esto se puede hacer que un controlador retorne una url en concreto, ejemplo puesto en practica en privacy</h1>
+    <p>return Redirect("http://www.google.com");</p>*@
+    <div id="contenidoHome">
+        
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>    
+<script>
+
+    const btnHttp = document.getElementById("docsHttp");
+    const btnDestinos = document.getElementById("btnDestinos");
+    const btnReservas = document.getElementById("btnReservas");
+    const btnTipos = document.getElementById("btnTipos");
+    const btnUsuarios = document.getElementById("btnUsuarios");
+    const btnViajes = document.getElementById("btnViajes");
+
+
+    $(document).ready(function () {
+
+    });
+    
+    btnDestinos.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnReservas").style.display = "none";
+        document.getElementById("cajaBtnTipos").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnViajes").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnDocumentacion").style.display = "none";
+
+
+
+        if (btnHttp.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnHttp.classList.remove("active");
+            document.getElementById("cajaBtnReservas").style.display = "block";
+            document.getElementById("cajaBtnTipos").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnViajes").style.display = "block";
+            document.getElementById("cajaBtnDocumentacion").style.display = "block";
+
+         
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("PartialIndex", "Destinos")",
+                type: 'GET',
+                success: function (data) {
+
+                    contenidoHome.html(data);
+                    btnHttp.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+
+    });
+    btnReservas.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnDestinos").style.display = "none";
+        document.getElementById("cajaBtnTipos").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnViajes").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnDocumentacion").style.display = "none";
+
+        if (btnHttp.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnHttp.classList.remove("active");
+
+            document.getElementById("cajaBtnDestinos").style.display = "block";
+            document.getElementById("cajaBtnTipos").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnViajes").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnDocumentacion").style.display = "block";
+
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("PartialIndex", "Reservas")",
+                type: 'GET',
+                success: function (data) {
+
+                    contenidoHome.html(data);
+                    btnHttp.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+	});
+    btnTipos.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnDestinos").style.display = "none";
+        document.getElementById("cajaBtnReservas").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnViajes").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnDocumentacion").style.display = "none";
+
+        if (btnHttp.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnHttp.classList.remove("active");
+
+            document.getElementById("cajaBtnDestinos").style.display = "block";
+            document.getElementById("cajaBtnReservas").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnViajes").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnDocumentacion").style.display = "block";
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("PartialIndex", "TiposViajes")",
+                type: 'GET',
+                success: function (data) {
+
+                    contenidoHome.html(data);
+                    btnHttp.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+    });
+    btnUsuarios.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnDestinos").style.display = "none";
+        document.getElementById("cajaBtnReservas").style.display = "none";
+        document.getElementById("cajaBtnTipos").style.display = "none";
+        document.getElementById("cajaBtnViajes").style.display = "none";
+        document.getElementById("cajaBtnDocumentacion").style.display = "none";
+
+        if (btnHttp.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnHttp.classList.remove("active");
+            document.getElementById("cajaBtnDestinos").style.display = "block";
+            document.getElementById("cajaBtnReservas").style.display = "block";
+            document.getElementById("cajaBtnTipos").style.display = "block";
+            document.getElementById("cajaBtnViajes").style.display = "block";
+            document.getElementById("cajaBtnDocumentacion").style.display = "block";
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("PartialIndex", "Usuarios")",
+                type: 'GET',
+                success: function (data) {
+
+                    contenidoHome.html(data);
+                    btnHttp.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+    });
+    btnViajes.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnDestinos").style.display = "none";
+        document.getElementById("cajaBtnReservas").style.display = "none";
+        document.getElementById("cajaBtnTipos").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnDocumentacion").style.display = "none";
+
+        if (btnHttp.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnHttp.classList.remove("active");
+            document.getElementById("cajaBtnDestinos").style.display = "block";
+            document.getElementById("cajaBtnReservas").style.display = "block";
+            document.getElementById("cajaBtnTipos").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnDocumentacion").style.display = "block";
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("PartialIndex", "Viajes")",
+                type: 'GET',
+                success: function (data) {
+
+                    contenidoHome.html(data);
+                    btnHttp.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+    });
+
+
+
+    btnHttp.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const contenidoHome = $("#contenidoHome");
+        document.getElementById("cajaBtnDestinos").style.display = "none";
+        document.getElementById("cajaBtnReservas").style.display = "none";
+        document.getElementById("cajaBtnTipos").style.display = "none";
+        document.getElementById("cajaBtnUsuarios").style.display = "none";
+        document.getElementById("cajaBtnViajes").style.display = "none";
+
+        if (btnReservas.classList.contains("active")) {
+            // El botón ya está activo, se debe quitar la vista parcial
+            contenidoHome.empty();
+            btnReservas.classList.remove("active");
+            document.getElementById("cajaBtnDestinos").style.display = "block";
+            document.getElementById("cajaBtnReservas").style.display = "block";
+            document.getElementById("cajaBtnTipos").style.display = "block";
+            document.getElementById("cajaBtnUsuarios").style.display = "block";
+            document.getElementById("cajaBtnViajes").style.display = "block";
+        } else {
+            contenidoHome.html('<i class="fa-solid fa-spinner fa-spin" style="color: #31af4b;font-size:200px;margin-top:10%;"></i>');
+            // El botón no está activo, se debe cargar la vista parcial
+            $.ajax({
+                url: "@Url.Action("DocumentacionHttp", "Home")",
+                type: 'GET',
+                success: function (data) {
+     
+                    contenidoHome.html(data);
+                    btnReservas.classList.add("active");
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+    });
+</script>

@@ -18,11 +18,14 @@ namespace AsturTravel.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
+
         public DestinosController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             _hostEnvironment = hostEnvironment;
         }
+        
+
         
 
         // GET: Destinos
@@ -102,9 +105,16 @@ namespace AsturTravel.Controllers
         // POST: Destinos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+        // CREAR UN METODO APARTE QUE SE EJECUTE AL CARGAR LA VISTA DE EDIT Y OBTENGA DESTINOS IMAGEN PARA NO TENER QUE HACER LA CONSULTA DENTRO DEL METODO EDIT
+
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Imagen")] Destinos destinos)
+        public async Task<IActionResult> Edit(int id, Destinos destinos)
         {
             if (id != destinos.Id)
             {
@@ -115,8 +125,37 @@ namespace AsturTravel.Controllers
             {
                 try
                 {
-                    _context.Update(destinos);
-                    await _context.SaveChangesAsync();
+                    if (destinos.ImagenFile != null)
+                    {
+                        string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
+                        string uniqueFileName =/* Guid.NewGuid().ToString() + "_" +*/ destinos.ImagenFile.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        destinos.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
+                        ViewBag.imagen = destinos.Imagen;
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await destinos.ImagenFile.CopyToAsync(stream);
+                        }
+                    }
+                    else
+                    {
+                        destinos.Imagen = GetImage(destinos.Id);
+                    }
+
+                    var existingDestinos = await _context.Destinos.FindAsync(id);
+                    if (existingDestinos != null)
+                    {
+                        existingDestinos.Nombre = destinos.Nombre;
+                        existingDestinos.Descripcion = destinos.Descripcion;
+                        existingDestinos.Imagen = destinos.Imagen;
+
+                        _context.Update(existingDestinos);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -133,6 +172,7 @@ namespace AsturTravel.Controllers
             }
             return View(destinos);
         }
+
 
         // GET: Destinos/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -209,7 +249,17 @@ namespace AsturTravel.Controllers
 
             return destino;
         }
+        public IActionResult PartialIndex()
+        {
+            var destinos = _context.Destinos.ToList();
+
+            return PartialView("PartialsHomeAdmin/_PartialDestinos",destinos);
+        }
 
 
+        public String GetImage(int id)
+        {
+            return _context.Destinos.Find(id).Imagen;
+        }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsturTravel.Data;
 using AsturTravel.Models;
+using System.Globalization;
 
 namespace AsturTravel.Controllers
 {
@@ -59,10 +60,14 @@ namespace AsturTravel.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UsuarioId,ViajeId,FechaReserva,FechaPago,FechaCancelacion,FechaModificacion,NumeroPersonas,Precio")] Reservas reservas)
+        public async Task<IActionResult> Create(Reservas reservas)
         {
             if (ModelState.IsValid)
             {
+
+                var precioString = reservas.PrecioString;
+                reservas.Precio = double.Parse(precioString, CultureInfo.InvariantCulture);
+
                 _context.Add(reservas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -95,7 +100,7 @@ namespace AsturTravel.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,ViajeId,FechaReserva,FechaPago,FechaCancelacion,FechaModificacion,NumeroPersonas,Precio")] Reservas reservas)
+        public async Task<IActionResult> Edit(int id,Reservas reservas)
         {
             if (id != reservas.Id)
             {
@@ -106,6 +111,10 @@ namespace AsturTravel.Controllers
             {
                 try
                 {
+                    var precioString = reservas.PrecioString;
+                    reservas.Precio = double.Parse(precioString);
+
+
                     _context.Update(reservas);
                     await _context.SaveChangesAsync();
                 }
@@ -224,6 +233,70 @@ namespace AsturTravel.Controllers
         }
 
 
+        public IActionResult getPrecioViaje(int id)
+        {
+            var viaje = _context.Viajes.Find(id);
+            if(id == -1)
+            {
+                return Json(0);
+            }
+            else
+            {
+                return Json(viaje.Precio);
+            }
+            
+        }
+
+        public IActionResult GetPrecio(int id)
+        {
+
+            var precio = _context.Reservas.Find(id).Precio;
+            
+
+            return Json(new { precio });
+        }
+
+        public IActionResult getDatosCliente(int id)
+        {
+            //devolver un json con los datos del cliente
+           if(id != -1)
+            {
+                var usuario = _context.Usuario.Find(id);
+
+                var getDatosCliente = new
+                {
+                    nombre = usuario.Nombre,
+                    apeliidos = usuario.Apellidos,
+                    email = usuario.Email,
+                    telefono = usuario.Telefono,
+                    dni = usuario.DNI,
+                    codpost = usuario.CODPOST
+
+                };
+
+                return Json(getDatosCliente);
+            }
+            else
+            {
+                var getDatosCliente = new
+                {
+                    nombre = "",
+                    apeliidos = "",
+                    email = "",
+                    telefono = "",
+                    dni = "",
+                    codpost = ""
+                };
+                return Json(getDatosCliente);
+            }
+        }
+
+        public IActionResult PartialIndex()
+        {
+            var reservas = _context.Reservas.Include(r => r.Usuario).Include(r => r.Viaje);
+
+            return PartialView("PartialsHomeAdmin/_PartialReservas", reservas);
+        }
 
 
 

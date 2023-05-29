@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AsturTravel.Models
 {
@@ -16,8 +17,10 @@ namespace AsturTravel.Models
         public DateTime? FechaModificacion { get; set; }
         public int? NumeroPersonas { get; set; }
         [DataType(DataType.Currency)]
-        public decimal? Precio { get; set; }
-        
-        
+        public double? Precio { get; set; }
+        [NotMapped]
+        public string? PrecioString { get; set; }
+
+
     }
 }
