@@ -28,6 +28,9 @@
                     @Html.DisplayNameFor(model => model.FechaLlegada)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Precio)
                 </th>
                 <th></th>
@@ -51,6 +54,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FechaLlegada)
+                    </td>
+                    <td>
+                        <img width="100px" src="@Html.DisplayFor(modelItem => item.Imagen)">
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Precio)

@@ -9,6 +9,7 @@ using AsturTravel.Data;
 using AsturTravel.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Globalization;
+using Microsoft.Extensions.Hosting;
 
 namespace AsturTravel.Controllers
 {
@@ -16,10 +17,11 @@ namespace AsturTravel.Controllers
     public class ViajesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ViajesController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        public ViajesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
  
 
@@ -69,6 +71,18 @@ namespace AsturTravel.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (viajes.ImagenFile != null)
+                {
+                    string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
+                    string uniqueFileName = /*Guid.NewGuid().ToString() + "_" +*/ viajes.ImagenFile.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    viajes.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
+                    ViewBag.imagen = viajes.Imagen;
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await viajes.ImagenFile.CopyToAsync(stream);
+                    }
+                }
 
                 var culture = new CultureInfo("es-ES");
                 viajes.Precio = double.Parse(viajes.PrecioString, culture);
@@ -122,11 +136,42 @@ namespace AsturTravel.Controllers
             {
                 try
                 {
-                    var culture = new CultureInfo("es-ES");
-                    viajes.Precio = double.Parse(viajes.PrecioString, culture);
 
-                    _context.Update(viajes);
-                    await _context.SaveChangesAsync();
+                    if (viajes.ImagenFile != null)
+                    {
+                        string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
+                        string uniqueFileName =/* Guid.NewGuid().ToString() + "_" +*/ viajes.ImagenFile.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        viajes.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
+                        ViewBag.imagen = viajes.Imagen;
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await viajes.ImagenFile.CopyToAsync(stream);
+                        }
+
+                    }
+                    else
+                    {
+                        viajes.Imagen = GetImage(viajes.Id);
+                    }
+
+                    var existingViajes = await _context.Viajes.FindAsync(id);
+                    if (existingViajes != null)
+                    {
+                        var precioString = viajes.PrecioString;
+                        existingViajes.Precio = float.Parse(precioString, CultureInfo.InvariantCulture);
+                        existingViajes.Nombre = viajes.Nombre; 
+                        existingViajes.Imagen = viajes.Imagen;
+
+                        _context.Update(existingViajes);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -185,7 +230,10 @@ namespace AsturTravel.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+        public String GetImage(int id)
+        {
+            return _context.Viajes.Find(id).Imagen;
+        }
 
 
         private bool ViajesExists(int id)

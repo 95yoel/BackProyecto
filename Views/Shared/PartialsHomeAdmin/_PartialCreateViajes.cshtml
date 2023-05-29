@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
@@ -59,6 +59,12 @@
                     <input style="text-align:right;" asp-for="PrecioString" class="form-control" />
                     <span style="margin-left:5px;" class="input-group-text">€</span>
                 </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagenFile" class="control-label"></label>
+                <input asp-for="ImagenFile" type="file" class="form-control" />
+
+                <span asp-validation-for="ImagenFile" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group" style="display:flex;justify-content:space-between;">

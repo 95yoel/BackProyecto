@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AsturTravel.Models
 {
@@ -21,6 +22,11 @@ namespace AsturTravel.Models
         public double? Precio { get; set; }
         [NotMapped]
         public string? PrecioString { get; set; }
+
+        public string? Imagen { get; set; }
+        [NotMapped]
+        [AllowNull]
+        public IFormFile? ImagenFile { get; set; }
 
     }
 }
