@@ -5,7 +5,6 @@ btnCrearUsuario.addEventListener("click", function () {
 		url: "/Usuarios/PartialCreate",
 		type: "GET",
 		success: function (response) {
-			console.log(response);
 			$("#contenidoUsuarios").html(response);
 		},
 		error: function (response) {

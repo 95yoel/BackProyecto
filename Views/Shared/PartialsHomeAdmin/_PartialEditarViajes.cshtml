@@ -4,6 +4,8 @@
 *@
 @{
 }
+
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit" method="post" enctype="multipart/form-data">
@@ -75,13 +77,24 @@
                 <button type="submit" class="btn btn-success">
                     <i class="fa-solid fa-plus"></i>
                 </button>
-
+                <button type="button" class="btn btn-dark" id="foto">Ampliar</button>
                 <div>
                     <a class="btn btn-danger" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-x" style="color: #ffffff;"></i></a>
                 </div>
             </div>
         </form>
     </div>
+    <div class="col-md-6" style="background-color: #f2f2f2;border-collapse: collapse;padding:20px;border-radius: 14px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);display:none;" id="verFoto">
+        <img src="@Model.Imagen" alt="Imagen cargada" class="img-fluid" />
+        <small class="float-end">@Model.Nombre</small>
+    </div>
 </div>
 <script src="~/lib/jquery/dist/jquery.js"></script> 
 <script src="~/js/viajes/editar-viajes.js"></script>
+<script>
+$(document).ready(function () {
+		$("#foto").click(function () {
+			$("#verFoto").toggle();
+		});
+	});
+</script>

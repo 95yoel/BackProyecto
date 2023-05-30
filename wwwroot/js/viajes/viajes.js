@@ -11,12 +11,11 @@ btnNuevoViaje.addEventListener("click", function (event) {
 		url: "/Viajes/PartialCreate",
 		type: "GET",
 		success: function (response) {
-			console.log(response);
 			$("#contenidoViajes").html(response);
 
 		},
 		error: function (response) {
-			console.log(response);
+			
 		}
 	});
 });
@@ -28,7 +27,6 @@ function editarViaje(id){
 		type: "GET",
 		data: { id: id },
 		success: function (response) {
-			console.log(response);
 			$("#contenidoViajes").html(response);
 
 		},

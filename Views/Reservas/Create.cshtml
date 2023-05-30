@@ -191,7 +191,10 @@
 			url: url,
 			type: "GET",
 			success: function (data) {
-                $("#PrecioString").val(data);
+                var number = parseFloat(data); // Parse the data to a float number
+                var roundedNumber = number.toFixed(2); // Round the number to two decimal places
+                var formattedNumber = roundedNumber.replace(".", ","); // Replace the decimal separator if necessary
+                $("#PrecioString").val(formattedNumber);
 			},
 			error: function (error) {
 				console.log(error);

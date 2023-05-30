@@ -85,7 +85,9 @@ namespace AsturTravel.Controllers
                 }
 
                 var culture = new CultureInfo("es-ES");
-                viajes.Precio = double.Parse(viajes.PrecioString, culture);
+                //viajes.Precio = double.Parse(viajes.PrecioString, culture);
+                viajes.Precio = Math.Round(double.Parse(viajes.PrecioString, culture), 2);
+
 
 
                 _context.Add(viajes);

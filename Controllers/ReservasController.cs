@@ -66,7 +66,7 @@ namespace AsturTravel.Controllers
             {
 
                 var precioString = reservas.PrecioString;
-                reservas.Precio = double.Parse(precioString, CultureInfo.InvariantCulture);
+                reservas.Precio = Math.Round(double.Parse(precioString, CultureInfo.InvariantCulture),2);
 
                 _context.Add(reservas);
                 await _context.SaveChangesAsync();
@@ -112,7 +112,7 @@ namespace AsturTravel.Controllers
                 try
                 {
                     var precioString = reservas.PrecioString;
-                    reservas.Precio = double.Parse(precioString);
+                    reservas.Precio = Math.Round(double.Parse(precioString),2);
 
 
                     _context.Update(reservas);
@@ -245,6 +245,20 @@ namespace AsturTravel.Controllers
                 return Json(viaje.Precio);
             }
             
+        }
+        public IActionResult CalcularPrecioViaje(int id,int num)
+        {
+            var viaje = _context.Viajes.Find(id);
+            if (id == -1)
+            {
+                return Json(0);
+            }
+            else
+            {
+                var precio = viaje.Precio * num;
+                return Json(precio);
+            }
+
         }
 
         public IActionResult GetPrecio(int id)

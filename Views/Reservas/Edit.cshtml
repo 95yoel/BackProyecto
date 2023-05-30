@@ -242,15 +242,18 @@
             $.ajax({
                 url: "/Reservas/getPrecioViaje",
                 type: "GET",
-                data: { id: viajeId },
+                data: { id: viajeId},
                 success: function (data) {
                     if (data == null) {
                         data = 0;
                     }
                     precioNumber = Number(data);
+                    console.log(precioNumber);
                     precioNumber = precioNumber * numPersonas.value;
+                    console.log(precioNumber);
                     precioNumber = String(precioNumber);
                     precioNumber = precioNumber.replace(".", ",");
+                    console.log(precioNumber);
                     $("#PrecioString").val(precioNumber);
 
                 }, error: function (error) {
