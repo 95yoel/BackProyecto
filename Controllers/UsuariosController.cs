@@ -129,7 +129,7 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return View(usuario);
+            return PartialView("PartialsHomeAdmin/_PartialEditarUsuarios",usuario);
         }
 
         // POST: Usuarios/Edit/5
@@ -236,7 +236,7 @@ namespace AsturTravel.Controllers
         }
         public IActionResult PartialCreate()
         {
-            return PartialView("../Usuarios/Create");
+            return PartialView("PartialsHomeAdmin/_PartialCreateUsuarios");
         }
 
 

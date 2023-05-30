@@ -1,19 +1,13 @@
 ﻿@model AsturTravel.Models.Usuario
-
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
-    ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
-<h4>Usuario</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
-        
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Rol" class="control-label"></label>
                 <select asp-for="Rol" class="form-control">
@@ -58,6 +52,7 @@
                 <input asp-for="Contrasenas" class="form-control" />
                 <span asp-validation-for="Contrasenas" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group" style="display:flex;justify-content:space-between;">
                 <button type="submit" class="btn btn-success" id="btnSubmit">
                     <i class="fa-solid fa-plus"></i>
@@ -71,12 +66,5 @@
     </div>
 </div>
 
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-<script>src = "~/lib/jquery/dist/jquery.js</script>
-<script src="~/js/usuarios/editar-usuarios.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/usuarios/create-usuarios.js"></script>

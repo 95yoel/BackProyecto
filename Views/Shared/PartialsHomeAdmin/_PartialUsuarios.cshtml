@@ -61,7 +61,7 @@
                         @item.CODPOST
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a> |
+                        <button id="btnEditarUsuario" title="editar" onclick="editarUsuario(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
                         <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
                         <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
                     </td>
@@ -70,9 +70,16 @@
         </tbody>
     </table>
 </div>
-<script>src = "~/lib/jquery/dist/jquery.js</script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/usuarios/usuarios.js"></script>
-
+<script>
+//$(document).ready(function () {
+//		$("#btnCrearUsuario").click(function () {
+//			$("#contenidoUsuarios").load("/Usuarios/Create");
+//		});
+//	});
+    
+</script>
     
 
 

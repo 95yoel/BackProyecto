@@ -52,19 +52,19 @@
                 <input asp-for="Contrasenas" class="form-control" />
                 <span asp-validation-for="Contrasenas" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <br />
+            <div class="form-group" style="display:flex;justify-content:space-between;">
+                <button type="submit" class="btn btn-success" id="btnSubmit">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+
+                <div>
+                    <a class="btn btn-danger" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-x" style="color: #ffffff;"></i></a>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 <script> src="~/lib/jquery/dist/jquery.js</script>
 <script src="~/js/usuarios/create-usuarios.js"></script>
