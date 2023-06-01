@@ -45,8 +45,52 @@
       "PackagePath": "staticwebassets\\img\\fondo-admin.png"
     },
     {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\img\\logo2.png",
+      "PackagePath": "staticwebassets\\img\\logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\competencia\\competencia.js",
+      "PackagePath": "staticwebassets\\js\\competencia\\competencia.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\destinos\\create-destinos.js",
+      "PackagePath": "staticwebassets\\js\\destinos\\create-destinos.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\destinos\\destinos.js",
+      "PackagePath": "staticwebassets\\js\\destinos\\destinos.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\destinos\\editar-destinos.js",
+      "PackagePath": "staticwebassets\\js\\destinos\\editar-destinos.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\reservas\\create-reservas.js",
+      "PackagePath": "staticwebassets\\js\\reservas\\create-reservas.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\reservas\\editar-reservas.js",
+      "PackagePath": "staticwebassets\\js\\reservas\\editar-reservas.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\reservas\\reservas.js",
+      "PackagePath": "staticwebassets\\js\\reservas\\reservas.js"
+    },
+    {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\tiposviajes\\create-tipos.js",
+      "PackagePath": "staticwebassets\\js\\tiposviajes\\create-tipos.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\tiposviajes\\editar-tipos.js",
+      "PackagePath": "staticwebassets\\js\\tiposviajes\\editar-tipos.js"
+    },
+    {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\tiposviajes\\tipos.js",
+      "PackagePath": "staticwebassets\\js\\tiposviajes\\tipos.js"
     },
     {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\usuarios\\create-usuarios.js",

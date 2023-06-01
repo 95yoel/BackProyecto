@@ -55,7 +55,7 @@ namespace AsturTravel.Controllers
         // GET: Destinos/Create
         public IActionResult Create()
         {
-            return View();
+            return PartialView("PartialsHomeAdmin/_PartialCreateDestinos");
         }
 
         // POST: Destinos/Create
@@ -99,7 +99,7 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return View(destinos);
+            return PartialView("PartialsHomeAdmin/_PartialEditarDestinos",destinos);
         }
 
         // POST: Destinos/Edit/5

@@ -1,0 +1,48 @@
+﻿@model AsturTravel.Models.Destinos
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagenFile" class="control-label"></label>
+                <input asp-for="ImagenFile" type="file" class="form-control-file" />
+                <span asp-validation-for="ImagenFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Imagen actual:</label>
+                <img src="@Model.Imagen" width="200" />
+            </div>
+            <div class="form-group" style="display:flex;justify-content:space-between;">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button type="button" class="btn btn-dark" id="foto">Ampliar</button>
+                <div>
+                    <a class="btn btn-danger" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-x" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-6" style="background-color: #f2f2f2;border-collapse: collapse;padding:20px;border-radius: 14px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);display:none;" id="verFoto">
+        <img src="@Model.Imagen" alt="Imagen cargada" class="img-fluid" />
+        <small class="float-end">@Model.Nombre</small>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="js/destinos/editar-destinos.js"></script>

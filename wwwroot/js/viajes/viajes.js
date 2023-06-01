@@ -8,7 +8,7 @@ btnNuevoViaje.addEventListener("click", function (event) {
 
 	event.preventDefault();
 	$.ajax({
-		url: "/Viajes/PartialCreate",
+		url: "/Viajes/Create",
 		type: "GET",
 		success: function (response) {
 			$("#contenidoViajes").html(response);

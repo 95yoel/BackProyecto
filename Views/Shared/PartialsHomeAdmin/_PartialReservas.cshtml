@@ -4,73 +4,77 @@
 *@
 @{
 }
-<p>
-    <a class="btn btn-dark" asp-action="Create">Nueva reserva</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Viaje)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaReserva)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaPago)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaCancelacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaModificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroPersonas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div id="contenidoReservas">
+    <p>
+        <a id="btnNuevoReserva" class="btn btn-dark" asp-action="Create">Nueva reserva</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Viaje.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaReserva)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaPago)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaCancelacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaModificacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumeroPersonas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Precio)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Viaje)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaReserva)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaPago)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaCancelacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaModificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumeroPersonas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Viaje.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaReserva)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaPago)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaCancelacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaModificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumeroPersonas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <button id="btnEditarReserva" onclick="editarReserva(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/reservas/reservas.js"></script>

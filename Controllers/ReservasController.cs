@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AsturTravel.Data;
 using AsturTravel.Models;
 using System.Globalization;
+using Newtonsoft.Json;
 
 namespace AsturTravel.Controllers
 {
@@ -52,7 +53,7 @@ namespace AsturTravel.Controllers
         {
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nombre");
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
-            return View();
+            return PartialView("PartialsHomeAdmin/_PartialCreateReservas");
         }
 
         // POST: Reservas/Create
@@ -90,9 +91,10 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
+            ViewBag.ReservasData = JsonConvert.SerializeObject(new { Id = reservas.Id, ViajeId = reservas.ViajeId });
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "NombreCompleto", reservas.UsuarioId);
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", reservas.ViajeId);
-            return View(reservas);
+            return PartialView("PartialsHomeAdmin/_PartialsEditarReservas");
         }
 
         // POST: Reservas/Edit/5

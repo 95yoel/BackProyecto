@@ -4,10 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div style="background-color: #f2f2f2;
+    margin-top:20px;
+    border-collapse: collapse;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color:#3a9962;
+    padding:20px;">
+    <p style="text-align:center">
+        En esta sección se muestran los viajes destacados , que serán los que se añadiran al carrusel de la página principal.
+    </p>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p style="text-align:center;margin-top:20px;">
+    <a class="btn btn-dark" asp-action="Create">Añadir viaje</a>
 </p>
 <table class="table">
     <thead>

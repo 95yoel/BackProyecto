@@ -15,6 +15,7 @@ html {
 }
 
 body {
+    user-select:none;
     margin-bottom: 60px;
     background-image: url("../img/fondo-admin.png");
     background-color: rgb(198, 198, 198,0.3);

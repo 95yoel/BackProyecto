@@ -47,7 +47,7 @@ namespace AsturTravel.Controllers
         
         public IActionResult Create()
         {
-            return View();
+            return PartialView("PartialsHomeAdmin/_PartialCreateTipos");
         }
 
         // POST: TiposViajes/Create
@@ -79,8 +79,9 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return View(tiposViaje);
+            return PartialView("PartialsHomeAdmin/_PartialEditarTipos", tiposViaje);
         }
+        
 
         // POST: TiposViajes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -192,6 +193,11 @@ namespace AsturTravel.Controllers
             var tipos = _context.TiposViaje.ToList();
 
             return PartialView("PartialsHomeAdmin/_PartialTipos", tipos);
+        }
+
+        public IActionResult PartialCreate()
+        {
+            return PartialView("PartialsHomeAdmin/_PartialCreateTipos");
         }
 
 
