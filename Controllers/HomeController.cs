@@ -35,20 +35,6 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/_PartialDocsHttp");
         }
 
-        public IActionResult Competencia()
-        {
-            return View();
-        }
-
-        public IActionResult cargarTrends(string site1,string site2,string timeRange)
-        {
-            ViewBag.site1 = site1;
-            ViewBag.site2 = site2;
-            ViewBag.timeRange = Newtonsoft.Json.JsonConvert.ToString(timeRange);
-
-            return PartialView("PartialsHomeAdmin/_PartialGoogleTrends");
-        }
-
 
     }
 }
