@@ -18,6 +18,8 @@ namespace AsturTravel.Models
         [Required]
         public string Contrasenas { get; set; }
         public Roles Rol { get; set; }
+        
+        public DateTime? fechaRegistro { get; set; }
         public string? Telefono { get; set; }
         public string? DNI { get; set; }
         public string? CODPOST { get; set; }

@@ -63,6 +63,7 @@ namespace AsturTravel.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.fechaRegistro = DateTime.Now;
                _context.Add(usuario);
                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -83,6 +84,7 @@ namespace AsturTravel.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    usuario.fechaRegistro = DateTime.Now;
                     _context.Add(usuario);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -148,6 +150,7 @@ namespace AsturTravel.Controllers
             {
                 try
                 {
+                    usuario.fechaRegistro = DateTime.Now;
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }

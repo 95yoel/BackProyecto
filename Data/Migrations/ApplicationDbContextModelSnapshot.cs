@@ -50,8 +50,8 @@ namespace AsturTravel.Data.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasMaxLength(400)
-                        .HasColumnType("nvarchar(400)");
+                        .HasMaxLength(800)
+                        .HasColumnType("nvarchar(800)");
 
                     b.Property<string>("Imagen")
                         .HasColumnType("nvarchar(max)");
@@ -89,8 +89,8 @@ namespace AsturTravel.Data.Migrations
                     b.Property<int?>("NumeroPersonas")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Precio")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double?>("Precio")
+                        .HasColumnType("float");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
@@ -136,8 +136,14 @@ namespace AsturTravel.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("CODPOST")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Contrasenas")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DNI")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -152,6 +158,12 @@ namespace AsturTravel.Data.Migrations
 
                     b.Property<int>("Rol")
                         .HasColumnType("int");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("fechaRegistro")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -175,13 +187,16 @@ namespace AsturTravel.Data.Migrations
                     b.Property<DateTime?>("FechaSalida")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Imagen")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal?>("Precio")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double?>("Precio")
+                        .HasColumnType("float");
 
                     b.Property<int>("TipoViajeId")
                         .HasColumnType("int");

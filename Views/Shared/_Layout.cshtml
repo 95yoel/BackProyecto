@@ -58,8 +58,9 @@
     <footer class="border-top footer text-muted" style="position:fixed;">
         <div class="align-content-center" style="margin-left:42%;">
             <span style="font-weight:700;">2023 - AsturTravel &copy</span> -  <span style="font-weight:700;" id="telefonoCompleto"> <span><i class="fa-solid fa-square-phone" style="font-size:20px;color:#3a9962;"></i> Contacto : </span><span style="font-style:italic;"><a style="text-decoration:none;" href="tel:667570588">667570588</a></span></span>
-            
+            <span style="float:right;margin-right:20px;"><a onclick="evento()" style="cursor:pointer"><i class="fa-solid fa-calendar-days" style="color:#3a9962;"></i></a> &nbsp;&nbsp; <span id="hora"></span></span>
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -67,3 +68,42 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script>
+    const elementoHora = document.getElementById("hora");
+    
+       
+    function actualizarHora() {
+        
+
+        var fecha = new Date();
+        var dia = fecha.getDate();
+        var mes = fecha.getMonth() + 1;
+        var ano = fecha.getFullYear();
+        var horas = fecha.getHours();
+        var minutos = fecha.getMinutes();
+        var segundos = fecha.getSeconds();
+
+        if (dia < 10) {
+            dia = "0" + dia;
+        }
+        if (mes < 10) {
+            mes = "0" + mes;
+        }
+        if (horas < 10) {
+            horas = "0" + horas;
+        }
+        if (minutos < 10) {
+            minutos = "0" + minutos;
+        }
+        if(segundos < 10) {
+			segundos = "0" + segundos;
+		}
+
+        var horaActual = dia + "/" + mes + "/" + ano + " - " + horas + ":" + minutos +":"+segundos;
+        elementoHora.textContent = horaActual;
+    }
+
+    setInterval(actualizarHora, 1000);
+
+
+</script>

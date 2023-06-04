@@ -60,6 +60,7 @@
                     <td>
                         @item.CODPOST
                     </td>
+                    <td>@item.fechaRegistro</td>
                     <td>
                         <button id="btnEditarUsuario" title="editar" onclick="editarUsuario(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
                         <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
