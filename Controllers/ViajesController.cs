@@ -232,6 +232,30 @@ namespace AsturTravel.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult getViaje(int id)
+        {
+            var viaje = _context.Viajes.Find(id);
+            return Json(viaje);
+        }
+
+
+        [HttpGet("Viajes/GetViajeById/{id}")]
+        public async Task<ActionResult<IEnumerable<Viajes>>> GetViajeById(int id)
+        {
+            var viajes = await _context.Viajes
+                .Where(v => v.Id == id)
+                .ToListAsync();
+
+            if (viajes == null || viajes.Count == 0)
+            {
+                return Json(new List<Viajes>());
+            }
+
+            return viajes;
+        }
+
+
+
         public String GetImage(int id)
         {
             return _context.Viajes.Find(id).Imagen;

@@ -9,6 +9,7 @@ using AsturTravel.Data;
 using AsturTravel.Models;
 using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
+using BCrypt.Net;
 
 namespace AsturTravel.Controllers
 {
@@ -64,7 +65,8 @@ namespace AsturTravel.Controllers
             if (ModelState.IsValid)
             {
                 usuario.fechaRegistro = DateTime.Now;
-               _context.Add(usuario);
+                usuario.Contrasenas = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenas);
+                _context.Add(usuario);
                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -84,6 +86,9 @@ namespace AsturTravel.Controllers
 
                 if (ModelState.IsValid)
                 {
+
+                    usuario.Rol = Roles.Usuario;
+                    usuario.Contrasenas = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenas);
                     usuario.fechaRegistro = DateTime.Now;
                     _context.Add(usuario);
                     await _context.SaveChangesAsync();
@@ -91,6 +96,28 @@ namespace AsturTravel.Controllers
                 }
 
                 return View(usuario);
+            }
+        }
+
+        public async Task<bool> Login()
+        {
+            using (var reader = new StreamReader(Request.Body))
+            {
+                var requestBody = await reader.ReadToEndAsync();
+                // Realizar la deserialización del cuerpo de la solicitud a un objeto Usuario
+                var usuario = JsonConvert.DeserializeObject<Usuario>(requestBody);
+                if (ModelState.IsValid)
+                {
+                    var usuarioBD = _context.Usuario.Where(u => u.Email == usuario.Email).FirstOrDefault();
+                    if (usuarioBD != null)
+                    {
+                        if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }
         }
 

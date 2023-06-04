@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AqoxtAuydrsUhjhCU4MCOZTK4ohHJxuJVwdaHu+jkfVtw/MbUAsqekGhuTDipmzvFytnXONveBp7qjzgQ0lrxw==",
+  "dgSpecHash": "r9zC0P2shf5OVqkpDKIA4VNrlejmkK4ALFEjV180DT8oC3drWNjtl8iHI7xwLGeuf+VKH2u4TLLRbVzHHzP3qw==",
   "success": true,
   "projectFilePath": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\AsturTravel.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\villa\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\villa\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
