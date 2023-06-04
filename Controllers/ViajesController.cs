@@ -246,6 +246,9 @@ namespace AsturTravel.Controllers
         public IActionResult GetJson()
         {
             List<Viajes> listaViajes = _context.Viajes.ToList();
+             
+            listaViajes.Sort((x, y) => string.Compare(x.Nombre, y.Nombre));
+
             return Json(listaViajes);
         }
         public IActionResult GetPrecio(int id)
@@ -272,6 +275,24 @@ namespace AsturTravel.Controllers
                 return Json(precio);
             }
 
+        }
+
+        public IActionResult ObtenerViajesPorDestino(int id)
+        {
+            var viajes = _context.Viajes
+                .Where(v => v.DestinoId == id)
+                .ToList();
+            return Json(viajes);
+        }
+        
+        public IActionResult ObtenerDestinosPorTipoViaje(int tipoViajeId = 7)
+        {
+            var destinos = _context.Viajes
+                .Where(v => v.TipoViajeId == tipoViajeId)
+                .Select(v => v.Destino)
+                .ToList();
+
+            return Ok(destinos);
         }
 
 

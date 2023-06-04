@@ -169,7 +169,25 @@ namespace AsturTravel.Controllers
         public IActionResult GetJson()
         {
             List<Destacados> listaDestacados = _context.Destacados.ToList();
-            return Json(listaDestacados);
+            List<Viajes> viajes = new List<Viajes>();
+
+            foreach(Destacados destacado in listaDestacados)
+            {
+                int viajeId = destacado.ViajeId;
+
+                Viajes viaje = ObtenerViajePorId(viajeId);
+
+                viajes.Add(viaje);
+            }
+
+
+            return Json(viajes);
+        }
+
+        public Viajes ObtenerViajePorId(int viajeId)
+        {
+            Viajes viaje = _context.Viajes.Find(viajeId);
+            return viaje;
         }
 
     }
