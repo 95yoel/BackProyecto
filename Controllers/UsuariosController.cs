@@ -99,7 +99,32 @@ namespace AsturTravel.Controllers
             }
         }
 
-        public async Task<bool> Login()
+        //public async Task<bool> Login()
+        //{
+        //    using (var reader = new StreamReader(Request.Body))
+        //    {
+        //        var requestBody = await reader.ReadToEndAsync();
+        //        // Realizar la deserialización del cuerpo de la solicitud a un objeto Usuario
+        //        var usuario = JsonConvert.DeserializeObject<Usuario>(requestBody);
+        //        if (ModelState.IsValid)
+        //        {
+        //            var usuarioBD = _context.Usuario.Where(u => u.Email == usuario.Email).FirstOrDefault();
+        //            if (usuarioBD != null)
+        //            {
+        //                if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
+        //                {
+        //                    return true;
+        //                }
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //}
+
+
+        //login alternativo que devuelve el rol del usuario y ademas el bool de si se ha logeado o no
+
+        public async Task<IActionResult> Login()
         {
             using (var reader = new StreamReader(Request.Body))
             {
@@ -113,11 +138,18 @@ namespace AsturTravel.Controllers
                     {
                         if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
                         {
-                            return true;
+                            var rolUsuario = usuarioBD.Rol;
+
+
+                            return Ok(new { rol = usuarioBD.Rol, logeado = true });
+                        }
+                        else
+                        {
+
                         }
                     }
                 }
-                return false;
+                return Ok(new { rol = "", logeado = false });
             }
         }
 
