@@ -49,7 +49,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(destinos);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Destinos/Create
@@ -81,9 +81,9 @@ namespace AsturTravel.Controllers
 
                 _context.Add(destinos);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
-            return View(destinos);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Destinos/Edit/5
@@ -168,9 +168,9 @@ namespace AsturTravel.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
-            return View(destinos);
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -189,7 +189,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(destinos);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Destinos/Delete/5

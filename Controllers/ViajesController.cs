@@ -92,11 +92,11 @@ namespace AsturTravel.Controllers
 
                 _context.Add(viajes);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Id", viajes.DestinoId);
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Id", viajes.TipoViajeId);
-            return View(viajes);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Viajes/Edit/5
@@ -190,7 +190,7 @@ namespace AsturTravel.Controllers
             }
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre", viajes.DestinoId);
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
-            return View(viajes);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Viajes/Delete/5
@@ -210,7 +210,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(viajes);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Viajes/Delete/5
@@ -230,6 +230,21 @@ namespace AsturTravel.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Delete2(int id)
+        {
+            if (_context.Viajes == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Viajes'  is null.");
+            }
+            var viajes = await _context.Viajes.FindAsync(id);
+            if (viajes != null)
+            {
+                _context.Viajes.Remove(viajes);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult getViaje(int id)

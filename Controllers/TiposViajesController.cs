@@ -63,7 +63,7 @@ namespace AsturTravel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tiposViaje);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: TiposViajes/Edit/5
@@ -113,9 +113,9 @@ namespace AsturTravel.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
-            return View(tiposViaje);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: TiposViajes/Delete/5
@@ -133,7 +133,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(tiposViaje);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: TiposViajes/Delete/5
@@ -152,7 +152,22 @@ namespace AsturTravel.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> Delete2(int id)
+        {
+            if (_context.TiposViaje == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.TiposViaje'  is null.");
+            }
+            var tiposViaje = await _context.TiposViaje.FindAsync(id);
+            if (tiposViaje != null)
+            {
+                _context.TiposViaje.Remove(tiposViaje);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         private bool TiposViajeExists(int id)

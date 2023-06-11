@@ -1,7 +1,7 @@
 ﻿const inputUsuario = document.getElementById("UsuarioId");
 const inputViaje = document.getElementById("ViajeId");
 const numeroPersonas = document.getElementById("NumeroPersonas");
-
+const PROVINCIA = document.getElementById("Provincia");
 $(document).ready(function () {
 
 });
@@ -12,6 +12,10 @@ inputUsuario.addEventListener("change", () => {
         url: `/Reservas/getDatosCliente/${inputUsuario.value}`,
         type: "GET",
         success: function (data) {
+
+            let codpost = data.codpost;
+            codpost = codpost.substring(0, 2);
+
             $("#infoCliente").show();
             $("#nombre").val(data.nombre);
             $("#apellidos").val(data.apeliidos);
@@ -19,6 +23,17 @@ inputUsuario.addEventListener("change", () => {
             $("#telefono").val(data.telefono);
             $("#dni").val(data.dni);
             $("#codigo-postal").val(data.codpost);
+            $.ajax({
+                url: "/Usuarios/GetProvincia",
+                type: 'POST',
+                data: { codProv: codpost },
+                success: function (data) {
+                    PROVINCIA.value = data;
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                }
+            });
             if (data.telefono != null) {
                 $("#btnLlamar").attr("href", "tel:" + data.telefono);
             }

@@ -49,7 +49,7 @@ namespace AsturTravel.Controllers
         public IActionResult Create()
         {
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Destacados/Create
@@ -63,10 +63,10 @@ namespace AsturTravel.Controllers
             {
                 _context.Add(destacados);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", destacados.ViajeId);
-            return View(destacados);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Destacados/Edit/5
@@ -83,7 +83,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", destacados.ViajeId);
-            return View(destacados);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Destacados/Edit/5
@@ -119,7 +119,7 @@ namespace AsturTravel.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", destacados.ViajeId);
-            return View(destacados);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Destacados/Delete/5
@@ -138,7 +138,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(destacados);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Destacados/Delete/5
@@ -157,7 +157,7 @@ namespace AsturTravel.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
         }
 
         private bool DestacadosExists(int id)

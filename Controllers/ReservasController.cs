@@ -45,7 +45,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(reservas);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Reservas/Create
@@ -68,14 +68,16 @@ namespace AsturTravel.Controllers
 
                 var precioString = reservas.PrecioString;
                 reservas.Precio = Math.Round(double.Parse(precioString, CultureInfo.InvariantCulture),2);
+                reservas.FechaModificacion = DateTime.Now;
+                reservas.FechaReserva = DateTime.Now;
 
                 _context.Add(reservas);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Id", reservas.UsuarioId);
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Id", reservas.ViajeId);
-            return View(reservas);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Reservas/Edit/5
@@ -116,6 +118,8 @@ namespace AsturTravel.Controllers
                     var precioString = reservas.PrecioString;
                     reservas.Precio = Math.Round(double.Parse(precioString),2);
 
+                    reservas.FechaModificacion = DateTime.Now;
+
 
                     _context.Update(reservas);
                     await _context.SaveChangesAsync();
@@ -131,12 +135,35 @@ namespace AsturTravel.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "NombreCompleto", reservas.UsuarioId);
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", reservas.ViajeId);
-            return View(reservas);
+            return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancelar(int id)
+        {
+            var reserva = await _context.Reservas.FindAsync(id);
+
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+
+            reserva.FechaCancelacion = DateTime.Now;
+            reserva.FechaModificacion = DateTime.Now;
+
+            _context.Update(reserva);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
 
         // GET: Reservas/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -155,7 +182,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return View(reservas);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Reservas/Delete/5
@@ -174,7 +201,7 @@ namespace AsturTravel.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> Delete2(int id)
         {
@@ -189,7 +216,7 @@ namespace AsturTravel.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index", "Home");
         }
 
         private bool ReservasExists(int id)

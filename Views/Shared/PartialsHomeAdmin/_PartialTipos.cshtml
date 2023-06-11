@@ -29,8 +29,10 @@
                     </td>
                     <td>
                         <button id="btnEditarTipo" onclick="editarTipo(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
-                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
+                        <form style="border:none;background:none;box-shadow:none;" method="post" action="@Url.Action("Delete2", "TiposViajes", new { id = item.Id })">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este destino?')" class="btn"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                        </form>
                     </td>
                 </tr>
             }
