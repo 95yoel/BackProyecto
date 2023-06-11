@@ -32,7 +32,8 @@
                 <th>
                     CODPOST
                 </th>
-                <th></th>
+                <th>Fecha registro</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -62,11 +63,19 @@
                     </td>
                     <td>@item.fechaRegistro</td>
                     <td>
-                        <button id="btnEditarUsuario" title="editar" onclick="editarUsuario(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
-                        <form style="border:none;background:none;box-shadow:none;" method="post" action="@Url.Action("Delete2", "Usuarios", new { id = item.Id })">
-                            @Html.AntiForgeryToken()
-                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este destino?')" class="btn"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
-                        </form>
+                        <table style="border:none;background:none;box-shadow:none;">
+                            <tr>
+                                <td>
+                                    <button id="btnEditarUsuario" title="editar" onclick="editarUsuario(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button>
+                                </td>
+                                <td>
+                                    <form style="border:none;background:none;box-shadow:none;" method="post" action="@Url.Action("Delete2", "Usuarios", new { id = item.Id })">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este destino?')" class="btn"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
             }
