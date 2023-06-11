@@ -68,18 +68,27 @@
                     </td>
                     <td>
                     <td style="display:block;">
-                        <form style="border:none;background:none;box-shadow:none; display: inline-block;" method="post" action="@Url.Action("Delete2", "Reservas", new { id = item.Id })">
-                                @Html.AntiForgeryToken()
-                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')" class="btn"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
-                        </form>
-                        <form style="border:none;background:none;box-shadow:none; display: inline-block;" method="post" action="@Url.Action("Cancelar", "Reservas", new { id = item.Id })">
-                                @Html.AntiForgeryToken()
-                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas cancelar esta reserva?')" class="btn"><i class="fa-solid fa-ban"></i></button>
-                        </form>
-                        <button id="btnEditarReserva" onclick="editarReserva(@item.Id)" style="border:none; display: inline-block;"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button>
+                        <table style="border:none;background:none;box-shadow:none;">
+                            <tr>
+                                <td>
+                                    <form style="border:none;background:none;box-shadow:none; display: inline-block;" method="post" action="@Url.Action("Delete2", "Reservas", new { id = item.Id })">
+                                            @Html.AntiForgeryToken()
+                                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')" class="btn" title="Eliminar"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form style="border:none;background:none;box-shadow:none; display: inline-block;" method="post" action="@Url.Action("Cancelar", "Reservas", new { id = item.Id })">
+                                            @Html.AntiForgeryToken()
+                                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas cancelar esta reserva?')" class="btn" title="Cancelar"><i class="fa-solid fa-ban"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <button id="btnEditarReserva" onclick="editarReserva(@item.Id)" style="border:none; display: inline-block;" title="Editar"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button>
+                                </td>
+                            </tr>
+                        </table>
+                        
                     </td>
-
-                
                 </tr>
             }
         </tbody>
