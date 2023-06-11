@@ -176,6 +176,21 @@ namespace AsturTravel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Delete2(int id)
+        {
+            if (_context.Reservas == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Reservas'  is null.");
+            }
+            var reservas = await _context.Reservas.FindAsync(id);
+            if (reservas != null)
+            {
+                _context.Reservas.Remove(reservas);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Home", "Index");
+        }
 
         private bool ReservasExists(int id)
         {
