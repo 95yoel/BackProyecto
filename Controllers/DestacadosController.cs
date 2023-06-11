@@ -49,7 +49,7 @@ namespace AsturTravel.Controllers
         public IActionResult Create()
         {
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         // POST: Destacados/Create
@@ -138,7 +138,7 @@ namespace AsturTravel.Controllers
                 return NotFound();
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         // POST: Destacados/Delete/5
@@ -156,6 +156,22 @@ namespace AsturTravel.Controllers
                 _context.Destacados.Remove(destacados);
             }
             
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Delete2(int id)
+        {
+            if (_context.Destacados == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Destacados'  is null.");
+            }
+            var destacados = await _context.Destacados.FindAsync(id);
+            if (destacados != null)
+            {
+                _context.Destacados.Remove(destacados);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
