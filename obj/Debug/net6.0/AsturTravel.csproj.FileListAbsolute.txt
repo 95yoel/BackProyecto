@@ -277,7 +277,6 @@ C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debu
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout2.cshtml.rz.scp.css
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll

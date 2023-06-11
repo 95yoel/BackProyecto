@@ -18,19 +18,19 @@
                     @Html.DisplayNameFor(model => model.Viaje)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FechaReserva)
+                    Fecha reserva
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FechaPago)
+                    Fecha pago
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FechaCancelacion)
+                    Fecha cancelación
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FechaModificacion)
+                    Fecha modificación
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.NumeroPersonas)
+                    Número personas
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Precio)
@@ -68,7 +68,6 @@
                     </td>
                     <td>
                         <button id="btnEditarReserva" onclick="editarReserva(@item.Id)" style="border:none"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button> |
-                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info" style="color: #000000;"></i></a> |
                         <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
                     </td>
                 </tr>

@@ -23,24 +23,24 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
+                <label class="control-label">Usuario</label>
                 <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId">
-                    <option style="text-align:center;font-style:italic;" value="-1" disabled selected>Elige un viaje</option>
+                    <option style="text-align:center;font-style:italic;" value="-1" disabled selected>Elige un usuario</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="ViajeId" class="control-label"></label>
+                <label class="control-label">Viaje</label>
                 <select asp-for="ViajeId" class="form-control" asp-items="ViewBag.ViajeId">
-                    <option value="-1" style="text-align:center;font-style:italic;" disabled selected>Elige</option>
+                    <option value="-1" style="text-align:center;font-style:italic;" disabled selected>Elige un viaje</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="FechaReserva" class="control-label"></label>
+                <label class="control-label">Fecha de reserva</label>
                 <input asp-for="FechaReserva" class="form-control" />
                 <span asp-validation-for="FechaReserva" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaPago" class="control-label"></label>
+                <label class="control-label">Fecha de reserva</label>
                 <input asp-for="FechaPago" class="form-control" />
                 <span asp-validation-for="FechaPago" class="text-danger"></span>
             </div>
@@ -56,7 +56,7 @@
             </div>
             <div style="display:flex;">
                 <div class="form-group">
-                    <label asp-for="NumeroPersonas" class="control-label"></label>
+                    <label class="control-label">Nº Personas</label>
                     <div class="input-group">
                         <input asp-for="NumeroPersonas" class="form-control" style="width:50px;" />
                         <span style="margin-left:5px;" class="input-group-text">Nº</span>
@@ -64,7 +64,7 @@
                     <span asp-validation-for="NumeroPersonas" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PrecioString" class="control-label"></label>
+                    <label class="control-label">Total</label>
                     <div class="input-group" style="margin-left:33px;">
                         <input asp-for="PrecioString" class="form-control" readonly style="width:150px;text-align:right;" />
                         <span style="margin-left:5px;" class="input-group-text">€</span>

@@ -208,8 +208,26 @@ namespace AsturTravel.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Home","Index");
         }
+
+
+        public async Task<IActionResult> Delete2(int id)
+        {
+            if (_context.Destinos == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Destinos'  is null.");
+            }
+            var destinos = await _context.Destinos.FindAsync(id);
+            if (destinos != null)
+            {
+                _context.Destinos.Remove(destinos);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
 
         private bool DestinosExists(int id)
         {
