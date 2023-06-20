@@ -79,11 +79,6 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: Usuarios
-        public async Task<IActionResult> Index()
-        {
-              return View(await _context.Usuario.ToListAsync());
-        }
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -244,7 +239,7 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return PartialView("PartialsHomeAdmin/_PartialEditarUsuarios",usuario);
+            return PartialView("PartialsHomeAdmin/Usuarios/_PartialEditarUsuarios",usuario);
         }
 
         // POST: Usuarios/Edit/5
@@ -380,11 +375,11 @@ namespace AsturTravel.Controllers
         {
             var usuarios = _context.Usuario.ToList();
 
-            return PartialView("PartialsHomeAdmin/_PartialUsuarios", usuarios);
+            return PartialView("PartialsHomeAdmin/Usuarios/_PartialUsuarios", usuarios);
         }
         public IActionResult PartialCreate()
         {
-            return PartialView("PartialsHomeAdmin/_PartialCreateUsuarios");
+            return PartialView("PartialsHomeAdmin/Usuarios/_PartialCreateUsuarios");
         }
 
 

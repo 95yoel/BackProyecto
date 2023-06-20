@@ -47,7 +47,7 @@ namespace AsturTravel.Controllers
         // GET: Destinos/Create
         public IActionResult Create()
         {
-            return PartialView("PartialsHomeAdmin/_PartialCreateDestinos");
+            return PartialView("PartialsHomeAdmin/Destinos/_PartialCreateDestinos");
         }
 
         // POST: Destinos/Create
@@ -91,7 +91,7 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return PartialView("PartialsHomeAdmin/_PartialEditarDestinos",destinos);
+            return PartialView("PartialsHomeAdmin/Destinos/_PartialEditarDestinos", destinos);
         }
 
         // POST: Destinos/Edit/5
@@ -256,7 +256,7 @@ namespace AsturTravel.Controllers
         {
             var destinos = _context.Destinos.ToList();
 
-            return PartialView("PartialsHomeAdmin/_PartialDestinos",destinos);
+            return PartialView("PartialsHomeAdmin/Destinos/_PartialDestinos",destinos);
         }
 
 

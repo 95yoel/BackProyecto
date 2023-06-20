@@ -19,12 +19,6 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: TiposViajes
-        public async Task<IActionResult> Index()
-        {
-              return View(await _context.TiposViaje.ToListAsync());
-        }
-
         // GET: TiposViajes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,7 +41,7 @@ namespace AsturTravel.Controllers
         
         public IActionResult Create()
         {
-            return PartialView("PartialsHomeAdmin/_PartialCreateTipos");
+            return PartialView("PartialsHomeAdmin/TiposViajes/_PartialCreateTipos");
         }
 
         // POST: TiposViajes/Create
@@ -79,7 +73,7 @@ namespace AsturTravel.Controllers
             {
                 return NotFound();
             }
-            return PartialView("PartialsHomeAdmin/_PartialEditarTipos", tiposViaje);
+            return PartialView("PartialsHomeAdmin/TiposViajes/_PartialEditarTipos", tiposViaje);
         }
         
 
@@ -207,12 +201,12 @@ namespace AsturTravel.Controllers
         {
             var tipos = _context.TiposViaje.ToList();
 
-            return PartialView("PartialsHomeAdmin/_PartialTipos", tipos);
+            return PartialView("PartialsHomeAdmin/TiposViajes/_PartialTipos", tipos);
         }
 
         public IActionResult PartialCreate()
         {
-            return PartialView("PartialsHomeAdmin/_PartialCreateTipos");
+            return PartialView("PartialsHomeAdmin/TiposViajes/_PartialCreateTipos");
         }
 
 

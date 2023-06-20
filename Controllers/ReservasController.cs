@@ -50,7 +50,7 @@ namespace AsturTravel.Controllers
         {
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nombre");
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
-            return PartialView("PartialsHomeAdmin/_PartialCreateReservas");
+            return PartialView("PartialsHomeAdmin/Reservas/_PartialCreateReservas");
         }
 
         // POST: Reservas/Create
@@ -140,7 +140,7 @@ namespace AsturTravel.Controllers
             ViewBag.ReservasData = JsonConvert.SerializeObject(new { Id = reservas.Id, ViajeId = reservas.ViajeId });
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "NombreCompleto", reservas.UsuarioId);
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre", reservas.ViajeId);
-            return PartialView("PartialsHomeAdmin/_PartialsEditarReservas");
+            return PartialView("PartialsHomeAdmin/Reservas/_PartialsEditarReservas");
         }
 
         // POST: Reservas/Edit/5
@@ -397,7 +397,7 @@ namespace AsturTravel.Controllers
         {
             var reservas = _context.Reservas.Include(r => r.Usuario).Include(r => r.Viaje);
 
-            return PartialView("PartialsHomeAdmin/_PartialReservas", reservas);
+            return PartialView("PartialsHomeAdmin/Reservas/_PartialReservas", reservas);
         }
 
 

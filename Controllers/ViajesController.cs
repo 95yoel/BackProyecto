@@ -25,13 +25,6 @@ namespace AsturTravel.Controllers
         }
  
 
-        // GET: Viajes
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Viajes.Include(v => v.Destino).Include(v => v.TipoViaje);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
         // GET: Viajes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,7 +50,7 @@ namespace AsturTravel.Controllers
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo");
-            return PartialView("PartialsHomeAdmin/_PartialCreateViajes");
+            return PartialView("PartialsHomeAdmin/Viajes/_PartialCreateViajes");
         }
 
         // POST: Viajes/Create
@@ -74,7 +67,7 @@ namespace AsturTravel.Controllers
                 if (viajes.ImagenFile != null)
                 {
                     string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
-                    string uniqueFileName = /*Guid.NewGuid().ToString() + "_" +*/ viajes.ImagenFile.FileName;
+                    string uniqueFileName = viajes.ImagenFile.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     viajes.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                     ViewBag.imagen = viajes.Imagen;
@@ -116,7 +109,7 @@ namespace AsturTravel.Controllers
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre", viajes.DestinoId);
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
 
-            return PartialView("PartialsHomeAdmin/_PartialEditarViajes",viajes);
+            return PartialView("PartialsHomeAdmin/Viajes/_PartialEditarViajes", viajes);
         }
 
         // POST: Viajes/Edit/5
@@ -142,7 +135,7 @@ namespace AsturTravel.Controllers
                     if (viajes.ImagenFile != null)
                     {
                         string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
-                        string uniqueFileName =/* Guid.NewGuid().ToString() + "_" +*/ viajes.ImagenFile.FileName;
+                        string uniqueFileName =viajes.ImagenFile.FileName;
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                         viajes.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                         ViewBag.imagen = viajes.Imagen;
@@ -355,13 +348,13 @@ namespace AsturTravel.Controllers
         {
             var viajes = _context.Viajes.Include(v => v.Destino).Include(v => v.TipoViaje);
 
-            return PartialView("PartialsHomeAdmin/_PartialViajes", viajes);
+            return PartialView("PartialsHomeAdmin/Viajes/_PartialViajes", viajes);
         }
         public IActionResult PartialCreate()
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo");
-            return PartialView("PartialsHomeAdmin/_PartialCreateViajes");
+            return PartialView("PartialsHomeAdmin/Viajes/_PartialCreateViajes");
         }
 
     }
