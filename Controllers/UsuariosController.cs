@@ -193,9 +193,9 @@ namespace AsturTravel.Controllers
                         if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
                         {
                             var rolUsuario = usuarioBD.Rol;
+                            var id = usuarioBD.Id;
 
-
-                            return Ok(new { rol = usuarioBD.Rol, logeado = true });
+                            return Ok(new { rol = usuarioBD.Rol, logeado = true ,id = id });
                         }
                         else
                         {
@@ -203,7 +203,7 @@ namespace AsturTravel.Controllers
                         }
                     }
                 }
-                return Ok(new { rol = "", logeado = false });
+                return Ok(new { rol = "", logeado = false,id = "" });
             }
         }
 

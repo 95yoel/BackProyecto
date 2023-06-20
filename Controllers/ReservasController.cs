@@ -9,9 +9,12 @@ using AsturTravel.Data;
 using AsturTravel.Models;
 using System.Globalization;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Cors;
+using Newtonsoft.Json;
 
 namespace AsturTravel.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     public class ReservasController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,13 +24,7 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: Reservas
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Reservas.Include(r => r.Usuario).Include(r => r.Viaje);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
+        
         // GET: Reservas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -79,6 +76,53 @@ namespace AsturTravel.Controllers
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Id", reservas.ViajeId);
             return RedirectToAction("Index", "Home");
         }
+
+        //RESERVAS DESDE EL FRONTEND
+        public async Task<IActionResult> Crear()
+        {
+            using (var reader = new StreamReader(Request.Body))
+            {
+                var requestBody = await reader.ReadToEndAsync();
+
+                var datosReserva = JsonConvert.DeserializeObject<Dictionary<string, string>>(requestBody);
+
+                
+                var idUsuario = int.Parse(datosReserva["id"]);
+                var idViaje = datosReserva["viaje"];
+                var numeroPersonas = datosReserva["numPersonas"];
+                var precio = datosReserva["precio"];
+
+
+                var reservas = new Reservas();
+
+               
+                var ultimaReserva = _context.Reservas.OrderByDescending(r => r.Id).FirstOrDefault();
+                var idReserva = ultimaReserva.Id + 1;
+
+
+                if (ModelState.IsValid)
+                {
+                    reservas.Id = idReserva;
+                    reservas.Precio = Math.Round(double.Parse(precio, CultureInfo.InvariantCulture), 2);
+                    reservas.FechaModificacion = DateTime.Now;
+                    reservas.FechaReserva = DateTime.Now;
+                    reservas.NumeroPersonas = int.Parse(numeroPersonas);
+                    reservas.ViajeId = int.Parse(idViaje);
+                    reservas.UsuarioId = idUsuario;
+                    reservas.FechaPago = DateTime.Now;
+                    reservas.FechaModificacion = DateTime.Now;
+
+                    //guardar en la base de datos
+                    _context.Add(reservas);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+
+
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
 
         // GET: Reservas/Edit/5
         public async Task<IActionResult> Edit(int? id)

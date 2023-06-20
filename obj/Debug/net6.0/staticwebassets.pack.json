@@ -49,10 +49,6 @@
       "PackagePath": "staticwebassets\\img\\logo2.png"
     },
     {
-      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\competencia\\competencia.js",
-      "PackagePath": "staticwebassets\\js\\competencia\\competencia.js"
-    },
-    {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\destinos\\create-destinos.js",
       "PackagePath": "staticwebassets\\js\\destinos\\create-destinos.js"
     },

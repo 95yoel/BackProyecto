@@ -40,60 +40,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGFjYWRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destinos/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destinos/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destinos/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destinos/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destinos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Home/Competencia.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wZXRlbmNpYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Inicio/Inicio.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEluaWNpby5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Reservas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Reservas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Reservas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Reservas/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Reservas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Shared/Error.cshtml]
@@ -170,66 +118,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/TiposViajes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWaWFqZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/TiposViajes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWaWFqZXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/TiposViajes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWaWFqZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/TiposViajes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWaWFqZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/TiposViajes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWaWFqZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Usuarios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Usuarios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Usuarios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Usuarios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Usuarios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Viajes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamVzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Viajes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamVzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Viajes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Viajes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Viajes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/_ViewImports.cshtml]

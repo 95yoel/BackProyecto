@@ -22,40 +22,36 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" id="id" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
+                <label class="control-label">Usuario</label>
                 <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId">
                     <option style="text-align:center;font-style:italic;" value="-1" disabled selected>Elige un viaje</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="ViajeId" class="control-label"></label>
+                <label class="control-label">Viaje</label>
                 <select asp-for="ViajeId" class="form-control" asp-items="ViewBag.ViajeId">
                     <option value="-1" style="text-align:center;font-style:italic;" disabled selected>Elige</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="FechaReserva" class="control-label"></label>
+                <label class="control-label">Fecha de reserva</label>
                 <input asp-for="FechaReserva" class="form-control" />
                 <span asp-validation-for="FechaReserva" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaPago" class="control-label"></label>
+                <label class="control-label">Fecha de pago</label>
                 <input asp-for="FechaPago" class="form-control" />
                 <span asp-validation-for="FechaPago" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaCancelacion" class="control-label"></label>
+                <label class="control-label">Fecha de cancelacion</label>
                 <input asp-for="FechaCancelacion" class="form-control" />
                 <span asp-validation-for="FechaCancelacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FechaModificacion" class="control-label"></label>
-                <input asp-for="FechaModificacion" class="form-control" />
-                <span asp-validation-for="FechaModificacion" class="text-danger"></span>
-            </div>
+            
             <div style="display:flex;">
                 <div class="form-group">
-                    <label asp-for="NumeroPersonas" class="control-label"></label>
+                    <label class="control-label">Nº Personas</label>
                     <div class="input-group">
                         <input asp-for="NumeroPersonas" class="form-control" style="width:50px;" />
                         <span style="margin-left:5px;" class="input-group-text">Nº</span>
@@ -63,7 +59,7 @@
                     <span asp-validation-for="NumeroPersonas" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PrecioString" class="control-label"></label>
+                    <label class="control-label">Precio</label>
                     <div class="input-group" style="margin-left:33px;">
                         <input asp-for="PrecioString" class="form-control" readonly style="width:150px;text-align:right;" />
                         <span style="margin-left:5px;" class="input-group-text">€</span>
@@ -127,6 +123,13 @@
                     <label for="codigo-postal">Código Postal:</label>
                     <div class="input-group">
                         <input type="text" style="text-align:right;" class="form-control" id="codigo-postal" placeholder="Código Postal" disabled>
+                        <span style="margin-left:5px;" class="input-group-text">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="codigo-postal">Provincia:</label>
+                    <div class="input-group">
+                        <input type="text" style="text-align:right;" class="form-control" id="Provincia" placeholder="Provincia" disabled>
                         <span style="margin-left:5px;" class="input-group-text">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </div>
                 </div>

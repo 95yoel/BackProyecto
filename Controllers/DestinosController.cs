@@ -26,14 +26,6 @@ namespace AsturTravel.Controllers
         }
         
 
-        
-
-        // GET: Destinos
-        public async Task<IActionResult> Index()
-        {
-              return View(await _context.Destinos.ToListAsync());
-        }
-
         // GET: Destinos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -103,14 +95,7 @@ namespace AsturTravel.Controllers
         }
 
         // POST: Destinos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-
-        // CREAR UN METODO APARTE QUE SE EJECUTE AL CARGAR LA VISTA DE EDIT Y OBTENGA DESTINOS IMAGEN PARA NO TENER QUE HACER LA CONSULTA DENTRO DEL METODO EDIT
-
-
-
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -128,7 +113,7 @@ namespace AsturTravel.Controllers
                     if (destinos.ImagenFile != null)
                     {
                         string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
-                        string uniqueFileName =/* Guid.NewGuid().ToString() + "_" +*/ destinos.ImagenFile.FileName;
+                        string uniqueFileName = destinos.ImagenFile.FileName;
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                         destinos.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                         ViewBag.imagen = destinos.Imagen;

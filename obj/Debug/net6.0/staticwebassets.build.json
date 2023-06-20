@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j/4g5T7MaPedmB4f6W2ZooSDkKJnZ0BysQMFCqXBUJI=",
+  "Hash": "nU2UWkeJ3XNoq/O5wfnv3pFaJivG4cjZaKXZ+JYAo24=",
   "Source": "AsturTravel",
   "BasePath": "_content/AsturTravel",
   "Mode": "Default",
@@ -1256,23 +1256,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo2.png"
-    },
-    {
-      "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\competencia\\competencia.js",
-      "SourceId": "AsturTravel",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\",
-      "BasePath": "_content/AsturTravel",
-      "RelativePath": "js/competencia/competencia.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\competencia\\competencia.js"
     },
     {
       "Identity": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\destinos\\create-destinos.js",
