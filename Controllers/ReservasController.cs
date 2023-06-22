@@ -24,27 +24,6 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        
-        // GET: Reservas/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Reservas == null)
-            {
-                return NotFound();
-            }
-
-            var reservas = await _context.Reservas
-                .Include(r => r.Usuario)
-                .Include(r => r.Viaje)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (reservas == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
         // GET: Reservas/Create
         public IActionResult Create()
         {
@@ -122,7 +101,6 @@ namespace AsturTravel.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-
 
         // GET: Reservas/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -206,47 +184,6 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-
-
-        // GET: Reservas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Reservas == null)
-            {
-                return NotFound();
-            }
-
-            var reservas = await _context.Reservas
-                .Include(r => r.Usuario)
-                .Include(r => r.Viaje)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (reservas == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        // POST: Reservas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Reservas == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Reservas'  is null.");
-            }
-            var reservas = await _context.Reservas.FindAsync(id);
-            if (reservas != null)
-            {
-                _context.Reservas.Remove(reservas);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
-        }
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Reservas == null)

@@ -79,34 +79,10 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-
-        // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Usuario == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         //CREA USUARIO DESDE EL BACKEND
         public async Task<IActionResult> Create(Usuario usuario)
@@ -148,30 +124,7 @@ namespace AsturTravel.Controllers
             }
         }
 
-        //public async Task<bool> Login()
-        //{
-        //    using (var reader = new StreamReader(Request.Body))
-        //    {
-        //        var requestBody = await reader.ReadToEndAsync();
-        //        // Realizar la deserialización del cuerpo de la solicitud a un objeto Usuario
-        //        var usuario = JsonConvert.DeserializeObject<Usuario>(requestBody);
-        //        if (ModelState.IsValid)
-        //        {
-        //            var usuarioBD = _context.Usuario.Where(u => u.Email == usuario.Email).FirstOrDefault();
-        //            if (usuarioBD != null)
-        //            {
-        //                if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
-        //                {
-        //                    return true;
-        //                }
-        //            }
-        //        }
-        //        return false;
-        //    }
-        //}
-
-
-        //login alternativo que devuelve el rol del usuario y ademas el bool de si se ha logeado o no
+        
 
         public async Task<IActionResult> Login()
         {
@@ -201,30 +154,6 @@ namespace AsturTravel.Controllers
                 return Ok(new { rol = "", logeado = false,id = "" });
             }
         }
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([FromBody] Usuario usuario)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            usuario.Rol = Roles.Usuario;
-        //            _context.Add(usuario);
-        //            await _context.SaveChangesAsync();
-        //            return Ok(); // Opcionalmente, puedes devolver una respuesta HTTP 200 OK si la creación es exitosa
-        //        }
-        //        return BadRequest(ModelState); // Devuelve una respuesta HTTP 400 Bad Request si el modelo no es válido
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Maneja cualquier excepción que pueda ocurrir durante el proceso de creación
-        //        return StatusCode(500, ex.Message); // Devuelve una respuesta HTTP 500 Internal Server Error con el mensaje de error
-        //    }
-        //}
-
 
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -278,42 +207,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Usuarios/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Usuario == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Usuario == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Usuario'  is null.");
-            }
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario != null)
-            {
-                _context.Usuario.Remove(usuario);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
-        }
+        
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Usuario == null)

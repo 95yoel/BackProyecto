@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\villa\OneDrive\Escritorio\PROYECTO_SI\AsturTravel3\AsturTravel
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/villa/OneDrive/Escritorio/PROYECTO_SI/AsturTravel3/AsturTravel/Views/Destacados/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGFjYWRvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

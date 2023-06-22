@@ -25,26 +25,6 @@ namespace AsturTravel.Controllers
         }
  
 
-        // GET: Viajes/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Viajes == null)
-            {
-                return NotFound();
-            }
-
-            var viajes = await _context.Viajes
-                .Include(v => v.Destino)
-                .Include(v => v.TipoViaje)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (viajes == null)
-            {
-                return NotFound();
-            }
-
-            return View(viajes);
-        }
-
         // GET: Viajes/Create
         public IActionResult Create()
         {
@@ -186,44 +166,6 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Viajes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Viajes == null)
-            {
-                return NotFound();
-            }
-
-            var viajes = await _context.Viajes
-                .Include(v => v.Destino)
-                .Include(v => v.TipoViaje)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (viajes == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        // POST: Viajes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Viajes == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Viajes'  is null.");
-            }
-            var viajes = await _context.Viajes.FindAsync(id);
-            if (viajes != null)
-            {
-                _context.Viajes.Remove(viajes);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Viajes == null)
@@ -327,23 +269,6 @@ namespace AsturTravel.Controllers
             return Ok(destinos);
         }
 
-
-
-
-        //creo que no hace falta ya que hago lo mismo en reservas
-        //public IActionResult GetViajesPorCliente(int idCliente)
-        //{
-        //    var viajesPorCliente = _context.Reservas
-        // .Include(r => r.Viaje)
-        //     .ThenInclude(v => v.Destino)
-        // .Include(r => r.Viaje)
-        //     .ThenInclude(v => v.TipoViaje)
-        // .Where(r => r.UsuarioId == idCliente)
-        // .Select(r => r.Viaje)
-        // .ToList();
-
-        //    return Json(viajesPorCliente);
-        //}
         public IActionResult PartialIndex()
         {
             var viajes = _context.Viajes.Include(v => v.Destino).Include(v => v.TipoViaje);

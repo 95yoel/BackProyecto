@@ -19,23 +19,7 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: TiposViajes/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.TiposViaje == null)
-            {
-                return NotFound();
-            }
-
-            var tiposViaje = await _context.TiposViaje
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (tiposViaje == null)
-            {
-                return NotFound();
-            }
-
-            return View(tiposViaje);
-        }
+       
 
         // GET: TiposViajes/Create
         
@@ -112,42 +96,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: TiposViajes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.TiposViaje == null)
-            {
-                return NotFound();
-            }
-
-            var tiposViaje = await _context.TiposViaje
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (tiposViaje == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        // POST: TiposViajes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.TiposViaje == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.TiposViaje'  is null.");
-            }
-            var tiposViaje = await _context.TiposViaje.FindAsync(id);
-            if (tiposViaje != null)
-            {
-                _context.TiposViaje.Remove(tiposViaje);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
-        }
+       
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.TiposViaje == null)

@@ -25,25 +25,6 @@ namespace AsturTravel.Controllers
             _hostEnvironment = hostEnvironment;
         }
         
-
-        // GET: Destinos/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Destinos == null)
-            {
-                return NotFound();
-            }
-
-            var destinos = await _context.Destinos
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (destinos == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
         // GET: Destinos/Create
         public IActionResult Create()
         {
@@ -156,44 +137,6 @@ namespace AsturTravel.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Index", "Home");
-        }
-
-
-        // GET: Destinos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Destinos == null)
-            {
-                return NotFound();
-            }
-
-            var destinos = await _context.Destinos
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (destinos == null)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        // POST: Destinos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Destinos == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Destinos'  is null.");
-            }
-            var destinos = await _context.Destinos.FindAsync(id);
-            if (destinos != null)
-            {
-                _context.Destinos.Remove(destinos);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Home","Index");
         }
 
 
