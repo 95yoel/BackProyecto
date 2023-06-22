@@ -42,7 +42,7 @@ namespace AsturTravel.Controllers
                 if (destinos.ImagenFile != null)
                 {
                     string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
-                    string uniqueFileName = /*Guid.NewGuid().ToString() + "_" +*/ destinos.ImagenFile.FileName;
+                    string uniqueFileName =  destinos.ImagenFile.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     destinos.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                     ViewBag.imagen = destinos.Imagen;
