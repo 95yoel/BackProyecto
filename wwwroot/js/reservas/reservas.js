@@ -7,6 +7,8 @@ const btnEditarReserva = document.getElementById("btnEditarReserva");
 btnNuevoReserva.addEventListener("click", function (event) {
 
 	event.preventDefault();
+
+	//LLAMADA QUE TRAE LA VISTA DE CREAR RESERVAS
 	$.ajax({
 		url: "/Reservas/Create",
 		type: "GET",
@@ -22,6 +24,8 @@ btnNuevoReserva.addEventListener("click", function (event) {
 
 
 function editarReserva(id) {
+
+	//LLAMADA QUE TRAE LA VISTA DE EDITAR RESERVAS
 	$.ajax({
 		url: "/Reservas/Edit",
 		type: "GET",

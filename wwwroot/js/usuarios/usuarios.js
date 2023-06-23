@@ -3,6 +3,8 @@
 
 
 btnCrearUsuario.addEventListener("click", function () {
+
+    //LLAMAR PARA OBTENER EL FORMULARIO DE CREAR USUARIO
 	$.ajax({
 		url: "/Usuarios/PartialCreate",
 		type: "GET",
@@ -19,6 +21,8 @@ btnCrearUsuario.addEventListener("click", function () {
 
 function editarUsuario(id) {
     var url = "/Usuarios/Edit/" + id;
+
+    //LLAMAR PARA OBTENER EL FORMULARIO DE EDITAR USUARIO
     $.ajax({
         url: "/Usuarios/Edit",
         type: "GET",

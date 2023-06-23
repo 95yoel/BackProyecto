@@ -145,10 +145,6 @@
       "PackagePath": "staticwebassets\\js\\reservas\\reservas.js"
     },
     {
-      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\tiposviajes\\create-tipos.js",
       "PackagePath": "staticwebassets\\js\\tiposviajes\\create-tipos.js"
     },

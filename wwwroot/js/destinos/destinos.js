@@ -7,6 +7,8 @@ const btnEditarDestino = document.getElementById("btnEditarDestino");
 btnNuevoDestino.addEventListener("click", function (event) {
 
 	event.preventDefault();
+
+	//CARGAR VISTA PARCIAL CREATE
 	$.ajax({
 		url: "/Destinos/Create",
 		type: "GET",
@@ -22,6 +24,8 @@ btnNuevoDestino.addEventListener("click", function (event) {
 
 
 function editarDestino(id) {
+
+	//CARGAR VISTA PARCIAL EDIT
 	$.ajax({
 		url: "/Destinos/Edit",
 		type: "GET",

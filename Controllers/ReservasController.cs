@@ -10,7 +10,6 @@ using AsturTravel.Models;
 using System.Globalization;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Cors;
-using Newtonsoft.Json;
 
 namespace AsturTravel.Controllers
 {
@@ -91,12 +90,11 @@ namespace AsturTravel.Controllers
                     reservas.FechaPago = DateTime.Now;
                     reservas.FechaModificacion = DateTime.Now;
 
-                    //guardar en la base de datos
+                    
                     _context.Add(reservas);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index", "Home");
                 }
-
 
                 return RedirectToAction("Index", "Home");
             }

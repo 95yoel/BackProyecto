@@ -2,6 +2,9 @@
 
 let display = "none";
 
+
+//MOSTRAR / OCULTAR FOTO
+
 foto.addEventListener('click', () => {
 
 	console.log(display);

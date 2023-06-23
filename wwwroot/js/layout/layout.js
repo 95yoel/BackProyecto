@@ -2,8 +2,7 @@
 
 
 function actualizarHora() {
-
-
+    //OBTENER HORA
     var fecha = new Date();
     var dia = fecha.getDate();
     var mes = fecha.getMonth() + 1;
@@ -12,6 +11,7 @@ function actualizarHora() {
     var minutos = fecha.getMinutes();
     var segundos = fecha.getSeconds();
 
+    //AÑADIR HORAS
     if (dia < 10) {
         dia = "0" + dia;
     }
@@ -29,7 +29,10 @@ function actualizarHora() {
     }
 
     var horaActual = dia + "/" + mes + "/" + ano + " - " + horas + ":" + minutos + ":" + segundos;
+
+    //ASIGNAR HORA ACTUAL AL ELEMENTO
     elementoHora.textContent = horaActual;
 }
 
+//ACTUALIZAR HORA CADA SEGUNDO
 setInterval(actualizarHora, 1000);
