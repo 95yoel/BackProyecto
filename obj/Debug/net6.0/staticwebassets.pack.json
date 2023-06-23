@@ -129,6 +129,10 @@
       "PackagePath": "staticwebassets\\js\\destinos\\editar-destinos.js"
     },
     {
+      "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\layout\\layout.js",
+      "PackagePath": "staticwebassets\\js\\layout\\layout.js"
+    },
+    {
       "Id": "C:\\Users\\villa\\OneDrive\\Escritorio\\PROYECTO_SI\\AsturTravel3\\AsturTravel\\wwwroot\\js\\reservas\\create-reservas.js",
       "PackagePath": "staticwebassets\\js\\reservas\\create-reservas.js"
     },
