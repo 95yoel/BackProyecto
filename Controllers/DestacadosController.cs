@@ -19,7 +19,7 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: Destacados
+        // LLAMADA A VISTA INDEX
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Destacados.Include(d => d.Viaje);
@@ -27,16 +27,14 @@ namespace AsturTravel.Controllers
         }
 
         
-        // GET: Destacados/Create
+        // LLAMADA A VISTA CREAR
         public IActionResult Create()
         {
             ViewData["ViajeId"] = new SelectList(_context.Viajes, "Id", "Nombre");
             return View();
         }
 
-        // POST: Destacados/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //LLAMADA A VISTA CREAR DESTACADO 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ViajeId")] Destacados destacados)
@@ -51,6 +49,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //BORRAR DESTACADO 
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Destacados == null)
@@ -67,11 +66,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        private bool DestacadosExists(int id)
-        {
-          return (_context.Destacados?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-
+        //METODO PARA OBTENER JSON DE DESTACADOS
         [HttpGet("destacado/GetJson")]
         public IActionResult GetJson()
         {
@@ -91,6 +86,7 @@ namespace AsturTravel.Controllers
             return Json(viajes);
         }
 
+        //METODO PARA OBTENER VIAJE POR ID
         public Viajes ObtenerViajePorId(int viajeId)
         {
             Viajes viaje = _context.Viajes.Find(viajeId);

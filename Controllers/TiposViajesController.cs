@@ -21,16 +21,14 @@ namespace AsturTravel.Controllers
 
        
 
-        // GET: TiposViajes/Create
+        // CARGAR VISTA PARCIAL DE CREAR TIPOS DE VIAJES
         
         public IActionResult Create()
         {
             return PartialView("PartialsHomeAdmin/TiposViajes/_PartialCreateTipos");
         }
 
-        // POST: TiposViajes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //CREAR TIPO DE VIAJE
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Tipo")] TiposViaje tiposViaje)
@@ -44,7 +42,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: TiposViajes/Edit/5
+        // EDITAR TIPO DE VIAJE
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.TiposViaje == null)
@@ -61,9 +59,7 @@ namespace AsturTravel.Controllers
         }
         
 
-        // POST: TiposViajes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //EDITAR TIPO DE VIAJE 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo")] TiposViaje tiposViaje)
@@ -96,7 +92,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-       
+       //BORRAR TIPO DE VIAJE
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.TiposViaje == null)
@@ -120,10 +116,7 @@ namespace AsturTravel.Controllers
 
         }
 
-        //ATENCION RUTAS
-        // por algún conflicto no puedo usar la misma ruta de tiposViajes , entonces he quitado el plural
-
-        //esta ruta funciona con tiposViaje
+        //OBTENER UN JSON CON TODOS LOS TIPOS DE VIAJE
         [HttpGet("tiposViaje/GetJson")]
         public IActionResult GetJson()
         {
@@ -146,13 +139,14 @@ namespace AsturTravel.Controllers
             return viajes;
         }
 
+        //CARGAR INDEX DE TIPOS DE VIAJE
         public IActionResult PartialIndex()
         {
             var tipos = _context.TiposViaje.ToList();
 
             return PartialView("PartialsHomeAdmin/TiposViajes/_PartialTipos", tipos);
         }
-
+        //CARGAR VISTA CREAR TIPOS DE VIAJE
         public IActionResult PartialCreate()
         {
             return PartialView("PartialsHomeAdmin/TiposViajes/_PartialCreateTipos");

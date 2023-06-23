@@ -25,7 +25,7 @@ namespace AsturTravel.Controllers
         }
  
 
-        // GET: Viajes/Create
+        //CARGAR VISTA PARCIAL CREAR VIAJES
         public IActionResult Create()
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");
@@ -33,10 +33,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Viajes/_PartialCreateViajes");
         }
 
-        // POST: Viajes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //FIXME : he creado un nuevo campo PrecioString para poder crear el precio, pero no se como hacer para que se guarde en la base de datos
+        //CREAR VIAJES
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -72,7 +69,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Viajes/Edit/5
+        //CARGAR VISTA PARCIAL EDITAR VIAJES
         
         public async Task<IActionResult> Edit(int? id)
         {
@@ -92,10 +89,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Viajes/_PartialEditarViajes", viajes);
         }
 
-        // POST: Viajes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //FIXME: he creado un nuevo campo PrecioString para poder editar el precio, pero no se como hacer para que se guarde en la base de datos
+        //EDITAR VIAJES
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -165,7 +159,7 @@ namespace AsturTravel.Controllers
             ViewData["TipoViajeId"] = new SelectList(_context.TiposViaje, "Id", "Tipo", viajes.TipoViajeId);
             return RedirectToAction("Index", "Home");
         }
-
+        //BORRAR VIAJES
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Viajes == null)
@@ -182,12 +176,14 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //OBTENER VIAJES
         public IActionResult getViaje(int id)
         {
             var viaje = _context.Viajes.Find(id);
             return Json(viaje);
         }
 
+        //OBTENER VIAJES POR ID
 
         [HttpGet("Viajes/GetViajeById/{id}")]
         public async Task<ActionResult<IEnumerable<Viajes>>> GetViajeById(int id)
@@ -205,7 +201,7 @@ namespace AsturTravel.Controllers
         }
 
 
-
+        //OBTENER IMAGEN
         public String GetImage(int id)
         {
             return _context.Viajes.Find(id).Imagen;
@@ -217,6 +213,7 @@ namespace AsturTravel.Controllers
           return _context.Viajes.Any(e => e.Id == id);
         }
 
+        //OBTENER JSON DE TODOS LOS VIAJES
         public IActionResult GetJson()
         {
             List<Viajes> listaViajes = _context.Viajes.ToList();
@@ -225,6 +222,8 @@ namespace AsturTravel.Controllers
 
             return Json(listaViajes);
         }
+
+        //OBTENER JSON CON DATOS DEL VIAJE
         public IActionResult GetPrecio(int id)
         {
 
@@ -235,7 +234,7 @@ namespace AsturTravel.Controllers
              
             return Json(new { precio, tipo, destino });
         }
-
+        //OBTENER JSON CON EL PRECIO DEL VIAJE
         public IActionResult getPrecioViaje(int id)
         {
             var reservas = _context.Reservas.Find(id);
@@ -250,7 +249,7 @@ namespace AsturTravel.Controllers
             }
 
         }
-
+        //OBTENER TODOS LOS VIAJES DE UN DESTINO CONCRETO
         public IActionResult ObtenerViajesPorDestino(int id)
         {
             var viajes = _context.Viajes
@@ -259,22 +258,15 @@ namespace AsturTravel.Controllers
             return Json(viajes);
         }
         
-        public IActionResult ObtenerDestinosPorTipoViaje(int tipoViajeId = 7)
-        {
-            var destinos = _context.Viajes
-                .Where(v => v.TipoViajeId == tipoViajeId)
-                .Select(v => v.Destino)
-                .ToList();
-
-            return Ok(destinos);
-        }
-
+        //CARGAR VISTA INDEX
         public IActionResult PartialIndex()
         {
             var viajes = _context.Viajes.Include(v => v.Destino).Include(v => v.TipoViaje);
 
             return PartialView("PartialsHomeAdmin/Viajes/_PartialViajes", viajes);
         }
+
+        //CARGAR VISTA CREAR
         public IActionResult PartialCreate()
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "Nombre");

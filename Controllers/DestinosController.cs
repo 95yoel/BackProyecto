@@ -25,15 +25,13 @@ namespace AsturTravel.Controllers
             _hostEnvironment = hostEnvironment;
         }
         
-        // GET: Destinos/Create
+        // CARGAR VISTA DE CREAR DESTINOS
         public IActionResult Create()
         {
             return PartialView("PartialsHomeAdmin/Destinos/_PartialCreateDestinos");
         }
 
-        // POST: Destinos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //CREAR DESTINO
         [HttpPost]
         public async Task<IActionResult> Create(Destinos destinos)
         {
@@ -41,17 +39,22 @@ namespace AsturTravel.Controllers
             {
                 if (destinos.ImagenFile != null)
                 {
+                    //ELEGIR CARPETA DONDE SE GUARDARAN LAS IMAGENES
                     string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
+                    //ELEGIR NOMBRE DEL ARCHIVO
                     string uniqueFileName =  destinos.ImagenFile.FileName;
+                    //UNIR CARPETA Y NOMBRE DEL ARCHIVO
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    //GUARDAR LA RUTA DE LA IMAGEN EN LA BASE DE DATOS
                     destinos.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                     ViewBag.imagen = destinos.Imagen;
+                    //GUARDAR LA IMAGEN EN LA CARPETA
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await destinos.ImagenFile.CopyToAsync(stream);
                     }
                 }
-
+                //AÑADIR DESTINO
                 _context.Add(destinos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Home");
@@ -59,7 +62,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Destinos/Edit/5
+        // CARGAR VISTA EDITAR DESTINO
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Destinos == null)
@@ -75,9 +78,8 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Destinos/_PartialEditarDestinos", destinos);
         }
 
-        // POST: Destinos/Edit/5
+        // EDITAR DESTINO
         
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Destinos destinos)
@@ -93,11 +95,16 @@ namespace AsturTravel.Controllers
                 {
                     if (destinos.ImagenFile != null)
                     {
+                        //ELEGIR CARPETA DONDE SE GUARDARAN LAS IMAGENES
                         string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "imagenes");
+                        //ELEGIR NOMBRE DEL ARCHIVO
                         string uniqueFileName = destinos.ImagenFile.FileName;
+                        //UNIR CARPETA Y NOMBRE DEL ARCHIVO
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        //GUARDAR LA RUTA DE LA IMAGEN EN LA BASE DE DATOS
                         destinos.Imagen = "https://localhost:7227/imagenes/" + uniqueFileName;
                         ViewBag.imagen = destinos.Imagen;
+                        //GUARDAR LA IMAGEN EN LA CARPETA
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             await destinos.ImagenFile.CopyToAsync(stream);
@@ -139,7 +146,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        //BORRAR DESTINO
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Destinos == null)
@@ -162,6 +169,8 @@ namespace AsturTravel.Controllers
           return _context.Destinos.Any(e => e.Id == id);
         }
 
+
+        //OBTENER JSON DE DESTINOS
         [HttpGet("destino/GetJson")]
         public IActionResult GetJson()
         {
@@ -169,6 +178,7 @@ namespace AsturTravel.Controllers
             return Json(listaDestinos);
         }
 
+        //OBTENER LOS VIAJES QUE PERTECEN A UN DESTINO
         [HttpGet("destino/viajesDestino/{id}")]
         public async Task<ActionResult<IEnumerable<Viajes>>> GetViajesByDestino(int id)
         {
@@ -183,6 +193,8 @@ namespace AsturTravel.Controllers
 
             return viajes;
         }
+
+        //OBTEENER DESTINO POR ID
         [HttpGet("destino/infoDestino/{id}")]
         public async Task<ActionResult<Destinos>> GetDestinoById(int id)
         {
@@ -195,6 +207,7 @@ namespace AsturTravel.Controllers
 
             return destino;
         }
+        //CARGAR VISTA PARCIAL INDEX DE DESTINOS
         public IActionResult PartialIndex()
         {
             var destinos = _context.Destinos.ToList();
@@ -202,7 +215,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Destinos/_PartialDestinos",destinos);
         }
 
-
+        //OBTENER IMAGEN DE UN DESTINO EN CONCRETO
         public String GetImage(int id)
         {
             return _context.Destinos.Find(id).Imagen;

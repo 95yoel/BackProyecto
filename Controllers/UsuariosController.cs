@@ -28,12 +28,9 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        [HttpPost]
         //CREA USUARIO DESDE EL BACKEND
+        [HttpPost]
         public async Task<IActionResult> Create(Usuario usuario)
         {
             if (ModelState.IsValid)
@@ -62,6 +59,8 @@ namespace AsturTravel.Controllers
                 {
 
                     usuario.Rol = Roles.Usuario;
+
+                    //ENCRIPTAR CONTRASEÑA USUARIO CON BCRYPT
                     usuario.Contrasenas = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenas);
                     usuario.fechaRegistro = DateTime.Now;
                     _context.Add(usuario);
@@ -74,7 +73,7 @@ namespace AsturTravel.Controllers
         }
 
         
-
+        //LOGIN DE USUARIO DESDE EL FRONTED
         public async Task<IActionResult> Login()
         {
             using (var reader = new StreamReader(Request.Body))
@@ -87,6 +86,7 @@ namespace AsturTravel.Controllers
                     var usuarioBD = _context.Usuario.Where(u => u.Email == usuario.Email).FirstOrDefault();
                     if (usuarioBD != null)
                     {
+                        //VERIFICAR QUE LA CONTRASEÑA ES COMPATIBLE CON EL HASH ALMACENADO EN LA BASE DE DATOS
                         if (BCrypt.Net.BCrypt.Verify(usuario.Contrasenas, usuarioBD.Contrasenas))
                         {
                             var rolUsuario = usuarioBD.Rol;
@@ -104,7 +104,7 @@ namespace AsturTravel.Controllers
             }
         }
 
-        // GET: Usuarios/Edit/5
+        //CARGAR VISTA DE EDITAR USUARIO
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Usuario == null)
@@ -120,9 +120,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Usuarios/_PartialEditarUsuarios",usuario);
         }
 
-        // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //EDITAR USUARIO
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,Usuario usuario)
@@ -156,7 +154,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
+        //BORRAR USUARIO
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Usuario == null)
@@ -173,6 +171,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //OBTENER PROVINCIA A PARTIR DEL DICCIONARIO PROVINCIAS
         public ActionResult GetProvincia(string codProv)
         {
 
@@ -195,6 +194,7 @@ namespace AsturTravel.Controllers
           return _context.Usuario.Any(e => e.Id == id);
         }
 
+        //OBTENER EN JSON TODOS LOS USUARIOS
 
         [HttpGet("usuario/GetJson")]
         public IActionResult GetJson()
@@ -202,6 +202,8 @@ namespace AsturTravel.Controllers
             List<Usuario> listaUsuario = _context.Usuario.ToList();
             return Json(listaUsuario);
         }
+
+        //OBTENER UN USUARIO SEGÚN SU ID
         [HttpGet("usuario/{id}")]
         public IActionResult InfoUsuario(int id)
         {
@@ -213,13 +215,15 @@ namespace AsturTravel.Controllers
             return Json(usuario);
         }
 
-
+        //CARGAR VISTA DE INDEX USUARIOS
         public IActionResult PartialIndex()
         {
             var usuarios = _context.Usuario.ToList();
 
             return PartialView("PartialsHomeAdmin/Usuarios/_PartialUsuarios", usuarios);
         }
+
+        //CARGAR VISTA DE CREAR USUARIOS
         public IActionResult PartialCreate()
         {
             return PartialView("PartialsHomeAdmin/Usuarios/_PartialCreateUsuarios");

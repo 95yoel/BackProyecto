@@ -23,7 +23,7 @@ namespace AsturTravel.Controllers
             _context = context;
         }
 
-        // GET: Reservas/Create
+        //CARGAR VISTA PARCIAL DE CREAR RESERVAS
         public IActionResult Create()
         {
             ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Nombre");
@@ -31,9 +31,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Reservas/_PartialCreateReservas");
         }
 
-        // POST: Reservas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //CREAR RESERVAS DESDE EL BACKEND
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Reservas reservas)
@@ -55,7 +53,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //RESERVAS DESDE EL FRONTEND
+        //CREAR RESERVAS DESDE EL FRONTEND
         public async Task<IActionResult> Crear()
         {
             using (var reader = new StreamReader(Request.Body))
@@ -100,7 +98,7 @@ namespace AsturTravel.Controllers
             }
         }
 
-        // GET: Reservas/Edit/5
+        // CARGAR VISTA EDITAR RESERVAS
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Reservas == null)
@@ -119,9 +117,7 @@ namespace AsturTravel.Controllers
             return PartialView("PartialsHomeAdmin/Reservas/_PartialsEditarReservas");
         }
 
-        // POST: Reservas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //EDITAR RESERVAS
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,Reservas reservas)
@@ -162,6 +158,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //CANCELAR RESERVA
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cancelar(int id)
@@ -182,6 +179,7 @@ namespace AsturTravel.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //BORRAR RESERVA
         public async Task<IActionResult> Delete2(int id)
         {
             if (_context.Reservas == null)
@@ -202,7 +200,8 @@ namespace AsturTravel.Controllers
         {
           return _context.Reservas.Any(e => e.Id == id);
         }
-        //A la ruta tiene una s menos
+
+        //OBTENER JSON DE RESERVAS
         [HttpGet("reserva/GetJson")]
         public IActionResult GetJson()
         {
@@ -216,7 +215,8 @@ namespace AsturTravel.Controllers
                 .ToList();
             return Json(listaReservas);
         }
-        //A la ruta tiene una s menos
+
+        //OBTENER RESERVAS QUE TIENE UN USUARIO 
         [HttpGet("reserva/reservasUsuario/{id}")]
         public async Task<ActionResult<IEnumerable<Reservas>>> GetReservasByUsuario(int id)
         {
@@ -236,6 +236,10 @@ namespace AsturTravel.Controllers
 
             return reservas;
         }
+
+
+        //OBTENER INFORMACION DE UNA RESERVA EN CONCRETO
+
         [HttpGet("reserva/infoReserva/{id}")]
         public async Task<ActionResult<Reservas>> GetReservaById(int id)
         {
@@ -255,7 +259,7 @@ namespace AsturTravel.Controllers
             return reserva;
         }
 
-
+        //OBTENER EL PRECIO DE UN VIAJE SEGÚN SU ID
         public IActionResult getPrecioViaje(int id)
         {
             var viaje = _context.Viajes.Find(id);
@@ -269,6 +273,8 @@ namespace AsturTravel.Controllers
             }
             
         }
+
+        //CALCULAR EL PRECIO DE UN VIAJE SEGÚN SU ID Y EL NUMERO DE PASAJEROS
         public IActionResult CalcularPrecioViaje(int id,int num)
         {
             var viaje = _context.Viajes.Find(id);
@@ -284,6 +290,7 @@ namespace AsturTravel.Controllers
 
         }
 
+        //OBTENER EL PRECIO DE UNA RESERVA SEGÚN SU ID
         public IActionResult GetPrecio(int id)
         {
 
@@ -293,9 +300,10 @@ namespace AsturTravel.Controllers
             return Json(new { precio });
         }
 
+        //OBTENER LOS DATOS DE UN CLIENTE SEGÚN SU ID
         public IActionResult getDatosCliente(int id)
         {
-            //devolver un json con los datos del cliente
+           
            if(id != -1)
             {
                 var usuario = _context.Usuario.Find(id);
@@ -328,6 +336,7 @@ namespace AsturTravel.Controllers
             }
         }
 
+        //CARGAR VISTA PARCIAL INDEX DE RESERVAS 
         public IActionResult PartialIndex()
         {
             var reservas = _context.Reservas.Include(r => r.Usuario).Include(r => r.Viaje);

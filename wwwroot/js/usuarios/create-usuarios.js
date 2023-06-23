@@ -3,6 +3,8 @@ const CODPOST = document.getElementById("CODPOST");
 const TELEFONO = document.getElementById("Telefono");
 const PROVINCIA = document.getElementById("PROVINCIA");
 const EMAIL = document.getElementById("Email");
+
+//OBTIENE LA LETRA DEL DNI AL INTRODUCIR LOS 8 NUMEROS
 DNI.addEventListener("input", () => {
 
     let longitud = DNI.value.length;
@@ -12,6 +14,8 @@ DNI.addEventListener("input", () => {
     }
 
 });
+
+//BORRA EVITANDO QUE SE INTRODUZCAN NUEVAS LETRAS
 DNI.addEventListener("keydown", (event) => {
     let longitud = DNI.value.length;
     if (longitud === 8 || event.key === 'Backspace') {
@@ -19,6 +23,7 @@ DNI.addEventListener("keydown", (event) => {
         DNI.value = DNI.value.slice(0, -1);
     }
 });
+//EVITA QUE SE INTRODUZCAN LETRAS EN EL DNI
 DNI.addEventListener("keyup", (e) => {
     let longitud = DNI.value.length;
     var campo = e.target;
@@ -31,6 +36,7 @@ DNI.addEventListener("keyup", (e) => {
 
 });
 
+//EVITA QUE SE INTRODUZCAN MAS DE 9 NUMEROS EN EL DNI
 DNI.addEventListener("input", () => {
     let longitud = DNI.value.length;
     if (longitud > 9) {
@@ -39,11 +45,13 @@ DNI.addEventListener("input", () => {
     }
 });
 
+
 CODPOST.addEventListener("input", () => {
     let longitud = CODPOST.value.length;
     if (longitud == 2) {
         
         console.log(CODPOST.value);
+        //LLAMA AL METODO GETPROVINCIA DEL CONTROLADOR USUARIOS PARA OBTENER LA PROVINCIA  CON EL CODIGO POSTAL DE 2 DIGITOS
         $.ajax({
             url: "/Usuarios/GetProvincia",
             type: 'POST',
@@ -64,6 +72,7 @@ CODPOST.addEventListener("input", () => {
 
 });
 
+//CAMBIA EL FOCO AL EMAIL CUANDO EL TELEFONO YA TIENE 9 NUMEROS
 TELEFONO.addEventListener("keydown", (event) => {
     let longitud = TELEFONO.value.length;
 
@@ -72,6 +81,8 @@ TELEFONO.addEventListener("keydown", (event) => {
     }
 });
 
+
+//EVITAR QUE SE LE PUEDA INTRODUCIR LETRAS AL TELEFONO
 TELEFONO.addEventListener("keyup", (e) => {
     var campo = e.target;
     var charCode = e.key.charCodeAt(0);
@@ -80,6 +91,8 @@ TELEFONO.addEventListener("keyup", (e) => {
         campo.value = campo.value.slice(0, -1);
     }
 });
+
+//FUNCION PARA OBTENER LA LETRA DEL DNI
 function obtenerLetraDNI(numeroDNI) {
     var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
     var indice = numeroDNI % 23;

@@ -3,7 +3,7 @@ const btnNuevoTipo = document.getElementById("btnNuevoTipo");
 const btnEditarTipo = document.getElementById("btnEditarTipo");
 
 
-
+//LLAMADA A LA VISTA PARCIAL DE CREAR TIPO DE VIAJE
 btnNuevoTipo.addEventListener("click", function (event) {
 
 	event.preventDefault();
@@ -20,7 +20,7 @@ btnNuevoTipo.addEventListener("click", function (event) {
 	});
 });
 
-
+//LLAMADA A LA VISTA PARCIAL DE EDITAR TIPO DE VIAJE
 function editarTipo(id) {
 	
 	$.ajax({
