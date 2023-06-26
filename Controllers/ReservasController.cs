@@ -54,6 +54,7 @@ namespace AsturTravel.Controllers
         }
 
         //CREAR RESERVAS DESDE EL FRONTEND
+        [HttpPost]
         public async Task<IActionResult> Crear()
         {
             using (var reader = new StreamReader(Request.Body))
@@ -62,41 +63,34 @@ namespace AsturTravel.Controllers
 
                 var datosReserva = JsonConvert.DeserializeObject<Dictionary<string, string>>(requestBody);
 
-                
                 var idUsuario = int.Parse(datosReserva["id"]);
                 var idViaje = datosReserva["viaje"];
                 var numeroPersonas = datosReserva["numPersonas"];
                 var precio = datosReserva["precio"];
+                var precioDecimal = double.Parse(precio.Replace(",", "."));
+                var precioRedondeado = Math.Round(precioDecimal, 2);
 
-
-                var reservas = new Reservas();
-
+                var culture = new CultureInfo("es-ES");
                
-                var ultimaReserva = _context.Reservas.OrderByDescending(r => r.Id).FirstOrDefault();
-                var idReserva = ultimaReserva.Id + 1;
 
-
-                if (ModelState.IsValid)
+                var reservas = new Reservas
                 {
-                    reservas.Id = idReserva;
-                    reservas.Precio = Math.Round(double.Parse(precio, CultureInfo.InvariantCulture), 2);
-                    reservas.FechaModificacion = DateTime.Now;
-                    reservas.FechaReserva = DateTime.Now;
-                    reservas.NumeroPersonas = int.Parse(numeroPersonas);
-                    reservas.ViajeId = int.Parse(idViaje);
-                    reservas.UsuarioId = idUsuario;
-                    reservas.FechaPago = DateTime.Now;
-                    reservas.FechaModificacion = DateTime.Now;
+                    Precio = Math.Round(double.Parse(precio, culture), 2),
+                    FechaModificacion = DateTime.Now,
+                    FechaReserva = DateTime.Now,
+                    NumeroPersonas = int.Parse(numeroPersonas),
+                    ViajeId = int.Parse(idViaje),
+                    UsuarioId = idUsuario,
+                    FechaPago = DateTime.Now
+                };
 
-                    
-                    _context.Add(reservas);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Home");
-                }
+                _context.Add(reservas);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index", "Home");
             }
         }
+
 
         // CARGAR VISTA EDITAR RESERVAS
         public async Task<IActionResult> Edit(int? id)
