@@ -1,7 +1,7 @@
 # Backend y vistas de Administración
 Proyecto hecho con Microsoft ASP.NET CORE 6.
 
-Para ejecutarlo correctamente es necesario tener instalado [FrontEnd AsturTravel](https://github.com/95yoel/BackProyecto/) .
+Para ejecutarlo correctamente es necesario tener instalado [FrontEnd AsturTravel](https://github.com/95yoel/frontProyecto/) .
 
 ## Requisitos 
 - Microsoft ASP .NET CORE 6.
